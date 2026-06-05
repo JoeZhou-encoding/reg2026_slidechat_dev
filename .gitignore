@@ -1,0 +1,52 @@
+# ===== REG2026 deploy repo .gitignore =====
+# 目标：只上传代码。权重、切片、数据、训练产物一律不进仓库。
+
+# --- 模型权重（每台机器手动放，用 --conch_checkpoint 等参数传入）---
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+checkpoints/
+pretrained/
+
+# --- 全切片 / 大图（数据在服务器上，不进仓库）---
+*.tiff
+*.tif
+*.svs
+*.ndpi
+*.mrxs
+data/
+datasets/reg2026/
+
+# --- 大特征 / 预处理产物（Phase 1/2 产物，体量巨大）---
+**/train_feat_conch/
+**/train_thumb/
+*.h5
+*.npy
+
+# --- 训练 / 评测产物 ---
+work_dirs/
+runs/
+outputs/
+logs/
+wandb/
+*.log
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# --- 密钥 / 本地配置 ---
+.env
+*.env
+
+# 说明：slidechat_dev/dataset/WSI_feat/*.csv 是示例特征(格式参考)，
+# 这里没有全局忽略 *.csv，故会被保留。
