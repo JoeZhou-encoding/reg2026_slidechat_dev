@@ -17,11 +17,14 @@
 #PJM -L elapse=24:00:00
 #PJM -j
 #PJM -S
-#PJM -o logs/conch_dump.%j.out
+#PJM -o conch_dump.%j.out
+# NOTE: `-o` has NO subdir on purpose — PJM creates it at submit time relative to
+# the submit dir; a `logs/` prefix would fail (GENKAI 0028) unless that dir already
+# exists. Per-GPU detailed logs go to $LOGDIR (absolute) below.
 
 set -uo pipefail
 
-# Run from the submit directory so `-o logs/...` and the per-GPU logs agree.
+# Run from the submit directory (where PJM put conch_dump.%j.out).
 cd "${PJM_O_WORKDIR:-$PWD}" || true
 
 module purge
@@ -39,6 +42,7 @@ NGPU="${NGPU:-4}"
 CAP="${CAP:-20480}"
 TISSUE_FRAC="${TISSUE_FRAC:-0.1}"
 BATCH="${BATCH:-256}"
+LOGDIR="${LOGDIR:-$REG2026/logs}"                       # absolute; always exists
 
 CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
@@ -47,7 +51,7 @@ conda activate "$ENV_PREFIX"
 export PYTHONPATH="$SLIDECHAT/xtuner/tools:${PYTHONPATH:-}"
 export HF_HUB_OFFLINE=1 HF_HOME="$REG2026/_cache/huggingface"
 export TMPDIR="${PJM_SSD_DIR:-$REG2026/tmp}"            # per-job local SSD scratch
-mkdir -p "$OUT" logs "$TMPDIR"
+mkdir -p "$OUT" "$LOGDIR" "$TMPDIR"
 
 echo "Job ${PJM_JOBID:-local}  host=$(hostname)  NGPU=$NGPU  $(date)"
 echo "REG_ROOT=$REG_ROOT  OUT=$OUT  CONCH_CKPT=$CONCH_CKPT"
@@ -66,9 +70,9 @@ for g in $(seq 0 $((NGPU - 1))); do
     --root "$REG_ROOT" --conch "$CONCH_CKPT" --device cuda \
     --cap "$CAP" --tissue-frac "$TISSUE_FRAC" --batch "$BATCH" \
     --shard "$g" --n-shards "$NGPU" --out "$OUT" \
-    > "logs/conch_dump.${PJM_JOBID:-local}.gpu${g}.log" 2>&1 &
+    > "$LOGDIR/conch_dump.${PJM_JOBID:-local}.gpu${g}.log" 2>&1 &
   pids+=($!)
-  echo "launched shard $g/$NGPU on GPU $g (pid ${pids[-1]})  -> logs/conch_dump.${PJM_JOBID:-local}.gpu${g}.log"
+  echo "launched shard $g/$NGPU on GPU $g (pid ${pids[-1]})  -> $LOGDIR/conch_dump.${PJM_JOBID:-local}.gpu${g}.log"
 done
 
 rc=0

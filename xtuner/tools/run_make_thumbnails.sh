@@ -21,7 +21,9 @@
 #PJM -L elapse=08:00:00
 #PJM -j
 #PJM -S
-#PJM -o logs/make_thumbnails.%j.out
+#PJM -o make_thumbnails.%j.out
+# NOTE: no subdir in `-o` — PJM creates this file at submit time relative to the
+# submit dir; `logs/...` would fail (GENKAI 0028) unless logs/ already exists.
 
 set -uo pipefail
 cd "${PJM_O_WORKDIR:-$PWD}" || true
@@ -40,7 +42,6 @@ conda activate "$ENV_PREFIX"
 export PYTHONUNBUFFERED=1
 NCPU=$(nproc)
 WORKERS=$(( NCPU > 32 ? 32 : (NCPU > 2 ? NCPU - 2 : 1) ))
-mkdir -p logs
 
 echo "Job ${PJM_JOBID:-local}  host=$(hostname)  NCPU=$NCPU  WORKERS=$WORKERS  $(date)"
 echo "REG_ROOT=$REG_ROOT"
