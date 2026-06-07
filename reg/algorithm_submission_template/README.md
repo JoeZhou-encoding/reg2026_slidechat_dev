@@ -29,9 +29,9 @@ How to adapt this template and submit a valid algorithm to Grand Challenge.
 
 Grand Challenge runs your algorithm inside a **Docker container**: your code, Python dependencies, and runtime packaged together. The same image should behave the same locally and on the platform.
 
-| Term | Meaning |
-|---|---|
-| **Image** | What you build and upload (from a Dockerfile). |
+| Term                | Meaning                                                        |
+| ------------------- | -------------------------------------------------------------- |
+| **Image**     | What you build and upload (from a Dockerfile).                 |
 | **Container** | One running instance of that image for a single inference job. |
 
 The included [`Dockerfile`](Dockerfile) is a **sample** — it uses a PyTorch CUDA base image and installs [`requirements.txt`](requirements.txt). You may replace it with another base (e.g. a slimmer Python image, conda, or your own stack) as long as the image still runs `python inference.py` as the entrypoint and includes everything your code needs at runtime.
@@ -62,10 +62,10 @@ Local runs use the same layout via [`do_build.sh`](do_build.sh), [`do_test_run.s
 
 REG2026 has two task types. Grand Challenge calls each an **interface**: a fixed contract of inputs and outputs.
 
-| Interface | Task | Metric | Inputs | Output file |
-|---|---|---|---|---|
-| **0** | Visual Grounding | B | ROI thumbnail (`.jpeg`) + question (JSON) | `visual-context-response.json` |
-| **1** | Workflow Reasoning | A | Whole slide image (`<uid>.tiff`, opaque UUID hash) | `chain-of-thought.json` |
+| Interface   | Task               | Metric | Inputs                                               | Output file                      |
+| ----------- | ------------------ | ------ | ---------------------------------------------------- | -------------------------------- |
+| **0** | Visual Grounding   | B      | ROI thumbnail (`.jpeg`) + question (JSON)          | `visual-context-response.json` |
+| **1** | Workflow Reasoning | A      | Whole slide image (`<uid>.tiff`, opaque UUID hash) | `chain-of-thought.json`        |
 
 Your container must implement **both**. The platform picks the interface per run (section 5); you do not branch manually.
 
@@ -106,12 +106,12 @@ Before your code runs, the platform writes `/input/inputs.json` with the input s
 
 [`inference.py`](inference.py) builds these paths and passes them into your function (do not change the paths themselves):
 
-| Role | Path |
-|---|---|
-| Question | `/input/visual-context-question.json` |
-| ROI thumbnail | `/input/histopathology-region-of-interest-thumbnail.jpeg` |
-| Interface selector | `/input/inputs.json` (read by `core.py`) |
-| Your answer | `/output/visual-context-response.json` |
+| Role               | Path                                                        |
+| ------------------ | ----------------------------------------------------------- |
+| Question           | `/input/visual-context-question.json`                     |
+| ROI thumbnail      | `/input/histopathology-region-of-interest-thumbnail.jpeg` |
+| Interface selector | `/input/inputs.json` (read by `core.py`)                |
+| Your answer        | `/output/visual-context-response.json`                    |
 
 ### Your code
 
@@ -144,13 +144,13 @@ A **plain JSON string** — not an object or array:
 
 Each Interface 1 case is one whole-slide image. The platform mounts it under a **fixed directory**, but the **filename is an opaque `<uid>`** (a long UUID-style hash), not a human-readable slide name and not a generic name like `whole-slide-image.tiff`.
 
-| Role | Path |
-|---|---|
-| WSI directory | `/input/images/whole-slide-image/` |
-| WSI file | `/input/images/whole-slide-image/<uid>.tiff` |
+| Role                        | Path                                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------------------- |
+| WSI directory               | `/input/images/whole-slide-image/`                                                                    |
+| WSI file                    | `/input/images/whole-slide-image/<uid>.tiff`                                                          |
 | Filename in `inputs.json` | `image.name` on the `whole-slide-image` socket (e.g. `d021e460-42d8-4a72-b83e-f07050d8468a.tiff`) |
-| Interface selector | `/input/inputs.json` (read by `core.py`) |
-| Your chain of thought | `/output/chain-of-thought.json` |
+| Interface selector          | `/input/inputs.json` (read by `core.py`)                                                            |
+| Your chain of thought       | `/output/chain-of-thought.json`                                                                       |
 
 > ℹ️ **`<uid>`** is an **anonymous platform identifier** (typically a UUID such as `d021e460-42d8-4a72-b83e-f07050d8468a`). It is **not** the original slide filename (e.g. not `PIT_01_00020_01.tiff`). [`resolve_wsi_path()`](core.py) reads `image.name` from `/input/inputs.json` and opens `/input/images/whole-slide-image/<uid>.tiff`. Do not hard-code or guess the uid in your code.
 
@@ -255,10 +255,10 @@ Implement inference in the `src/interf*/model.py` files or import from a package
 
 Weights are **not** part of the Docker image. They live in the **[`model/`](model/)** directory in this repo and are uploaded to Grand Challenge as a **separate** `model.tar.gz` under **Algorithm → Models**. Before each run, the platform extracts that tarball to **`/opt/ml/model/`** inside the container.
 
-| Location | When | Purpose |
-|---|---|---|
-| [`model/`](model/) (this repo) | Development | Store checkpoints and other large files locally |
-| `/opt/ml/model/` (container) | Every run | Runtime path — use `MODEL_PATH` from [`core.py`](core.py) |
+| Location                       | When        | Purpose                                                     |
+| ------------------------------ | ----------- | ----------------------------------------------------------- |
+| [`model/`](model/) (this repo)  | Development | Store checkpoints and other large files locally             |
+| `/opt/ml/model/` (container) | Every run   | Runtime path — use `MODEL_PATH` from [`core.py`](core.py) |
 
 **✅ Do**
 
@@ -305,6 +305,7 @@ Expected files after a successful run:
 2. On Grand Challenge: upload the **container image** under **Algorithm → Container images** and **`model.tar.gz`** under **Algorithm → Models**.
 
    > 🚫 **Two separate uploads** — weights must not be embedded only in the container image.
+   >
 3. Use **Try out algorithm** with sample inputs before a phase submission.
 4. Submit the algorithm to the challenge phase when ready.
 
@@ -321,13 +322,13 @@ These paths are defined in [`core.py`](core.py) and wired in [`inference.py`](in
 
 > 🚫 **Do not change the directory layout or socket filenames** in `core.py` or `inference.py`. The WSI **basename** `<uid>.tiff` changes per case; resolve it with [`resolve_wsi_path()`](core.py), do not hard-code a single filename.
 
-| Path | Interface | Purpose |
-|---|---|---|
-| `/input/inputs.json` | Both | Interface selector |
-| `/input/visual-context-question.json` | 0 | Question |
-| `/input/histopathology-region-of-interest-thumbnail.jpeg` | 0 | ROI thumbnail |
-| `/input/images/whole-slide-image/` | 1 | WSI directory (one file per case) |
-| `/input/images/whole-slide-image/<uid>.tiff` | 1 | WSI file (`<uid>` = opaque UUID in `image.name`) |
-| `/output/visual-context-response.json` | 0 | Your answer |
-| `/output/chain-of-thought.json` | 1 | Your reasoning steps |
-| `/opt/ml/model/` | Both | Model weights |
+| Path                                                        | Interface | Purpose                                              |
+| ----------------------------------------------------------- | --------- | ---------------------------------------------------- |
+| `/input/inputs.json`                                      | Both      | Interface selector                                   |
+| `/input/visual-context-question.json`                     | 0         | Question                                             |
+| `/input/histopathology-region-of-interest-thumbnail.jpeg` | 0         | ROI thumbnail                                        |
+| `/input/images/whole-slide-image/`                        | 1         | WSI directory (one file per case)                    |
+| `/input/images/whole-slide-image/<uid>.tiff`              | 1         | WSI file (`<uid>` = opaque UUID in `image.name`) |
+| `/output/visual-context-response.json`                    | 0         | Your answer                                          |
+| `/output/chain-of-thought.json`                           | 1         | Your reasoning steps                                 |
+| `/opt/ml/model/`                                          | Both      | Model weights                                        |
