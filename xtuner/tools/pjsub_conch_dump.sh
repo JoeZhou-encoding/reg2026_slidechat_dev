@@ -21,6 +21,9 @@
 
 set -uo pipefail
 
+# Run from the submit directory so `-o logs/...` and the per-GPU logs agree.
+cd "${PJM_O_WORKDIR:-$PWD}" || true
+
 module purge
 module load cuda/12.6.1
 
