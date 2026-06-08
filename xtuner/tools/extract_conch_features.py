@@ -183,7 +183,9 @@ def extract_one_wsi(tiff_path, mask_path, out_path, encode_fn, preprocess,
 
     store = None
     try:
-        store = tifffile.imread(tiff_path, aszarr=True)
+        # series=0, level=0: pyramidal/multi-series slides otherwise make aszarr
+        # return a zarr Group (no .shape). This forces the full-res base Array.
+        store = tifffile.imread(tiff_path, aszarr=True, series=0, level=0)
         arr = zarr.open(store, mode="r")
         H, W = arr.shape[:2]
 

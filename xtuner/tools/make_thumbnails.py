@@ -90,7 +90,9 @@ def process_one(args) -> Tuple[str, str, float, float]:
 
     t0 = time.time()
     try:
-        store = tifffile.imread(str(slide_path), aszarr=True)
+        # series=0, level=0: some slides are pyramidal/multi-series -> default aszarr
+        # returns a zarr Group (no .shape); this forces the full-res base Array.
+        store = tifffile.imread(str(slide_path), aszarr=True, series=0, level=0)
         arr = zarr.open(store, mode="r")
         h, w = arr.shape[:2]
         ratio = max(1, max(h, w) // target_long)

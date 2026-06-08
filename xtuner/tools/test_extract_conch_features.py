@@ -36,6 +36,18 @@ def write_tiff(path, img):
     tifffile.imwrite(path, img, tile=(256, 256))
 
 
+def write_pyramid_tiff(path, img):
+    """Multi-level (pyramidal) TIFF -> default aszarr returns a zarr Group (no .shape).
+    Reproduces the 94 make_thumbnails 'Group object has no attribute shape' failures;
+    exercises the series=0, level=0 fix."""
+    l1 = img[::2, ::2].copy()
+    l2 = img[::4, ::4].copy()
+    with tifffile.TiffWriter(path) as tw:
+        tw.write(img, tile=(256, 256), subifds=2)
+        tw.write(l1, tile=(256, 256), subfiletype=1)
+        tw.write(l2, tile=(256, 256), subfiletype=1)
+
+
 def make_mask(img, target_long=2048, threshold=220):
     """Mimic make_thumbnails.py: downsample then gray<threshold -> tissue (255)."""
     H, W = img.shape[:2]
@@ -126,6 +138,26 @@ def t_extract_one_mock(tmp):
     return f"{r['n']} patches, fp16 (N,512), coords in tissue"
 
 
+def t_pyramidal_slide(tmp):
+    """A pyramidal/multi-level slide must be read at base resolution (level 0)."""
+    H = W = 6 * P
+    img = synth_slide(H, W, (P, 4 * P, P, 4 * P))
+    tiff = os.path.join(tmp, "PIT_PYR_0001_01.tiff")
+    write_pyramid_tiff(tiff, img)
+    mp = os.path.join(tmp, "PIT_PYR_0001_01.tiff.mask.png")
+    Image.fromarray(make_mask(img)).save(mp)
+    out = os.path.join(tmp, "PIT_PYR_0001_01.h5")
+    r = E.extract_one_wsi(tiff, mp, out, mock_encode, mock_preprocess,
+                          patch_size=P, cap=None, tissue_frac=0.5, batch_size=4)
+    assert r["status"] == "ok", f"pyramidal slide failed: {r}"
+    import h5py
+    with h5py.File(out, "r") as f:
+        assert f["features"].shape[1] == 512 and f["features"].shape[0] > 0
+        assert int(f.attrs["H"]) == H and int(f.attrs["W"]) == W, \
+            f"read a downsampled level, not base: {f.attrs['H']}x{f.attrs['W']} != {H}x{W}"
+    return f"pyramidal slide OK: {r['n']} patches @ base {H}x{W}"
+
+
 def t_idempotent(tmp):
     H = W = 4 * P
     img = synth_slide(H, W, (0, H, 0, W))
@@ -205,6 +237,7 @@ def main():
         ("cap_subsample", lambda: t_cap_subsample()),
         ("no_tissue", lambda: t_no_tissue()),
         ("extract_one_mock", lambda: t_extract_one_mock(tmp)),
+        ("pyramidal_slide", lambda: t_pyramidal_slide(tmp)),
         ("idempotent", lambda: t_idempotent(tmp)),
         ("missing_mask", lambda: t_missing_mask(tmp)),
         ("sharding", lambda: t_sharding()),

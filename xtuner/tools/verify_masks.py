@@ -94,7 +94,8 @@ def main():
     counts, capped, errs = [], 0, 0
     for p in samp:
         try:
-            store = tifffile.imread(p, aszarr=True)
+            # series=0, level=0: handle pyramidal/multi-series slides (else Group)
+            store = tifffile.imread(p, aszarr=True, series=0, level=0)
             arr = zarr.open(store, mode="r")
             H, W = arr.shape[:2]
             store.close()
