@@ -37,11 +37,11 @@ ENV_PREFIX="${ENV_PREFIX:-$REG2026/_envs/conch_dump_py311}"
 CONCH_CKPT="${CONCH_CKPT:?set CONCH_CKPT to the CONCH pytorch_model.bin path}"
 OUT="${OUT:-$REG_ROOT/train_feat_conch}"
 LOGDIR="${LOGDIR:-$REG2026/logs}"
-N_SHARDS="${N_SHARDS:-8}"          # MUST match the --sparam range size (0-7 => 8)
+N_SHARDS="${N_SHARDS:-8}"          # MUST match the --sparam range size (0-7 => 8); max 8 MIG slices
 CAP="${CAP:-20480}"
 TISSUE_FRAC="${TISSUE_FRAC:-0.1}"
-BATCH="${BATCH:-128}"             # MIG has less memory than a full H100; lower if OOM
-NWORKERS="${NWORKERS:-8}"         # parallel patch-decode workers (decode is the bottleneck)
+BATCH="${BATCH:-256}"             # 256 fits MIG 1g.12gb (verified, ~27% faster than 128); lower if OOM
+NWORKERS="${NWORKERS:-4}"         # MIG gpu=1 gives ~4 CPU cores (match nproc; GPU-bound anyway)
 
 CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"

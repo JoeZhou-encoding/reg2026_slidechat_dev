@@ -14,7 +14,7 @@
 # =============================================================================
 #PJM -L rscgrp=b-batch
 #PJM -L gpu=4
-#PJM -L elapse=24:00:00
+#PJM -L elapse=08:00:00
 #PJM -j
 #PJM -S
 #PJM -o conch_dump.%j.out
