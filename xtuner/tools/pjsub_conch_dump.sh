@@ -36,7 +36,7 @@ REG2026="${REG2026:-$H_HOME/reg_2026}"
 SLIDECHAT="${SLIDECHAT:-$H_HOME/reg2026_slidechat_dev}"
 REG_ROOT="${REG_ROOT:-$REG2026/data/reg2026}"           # contains train/ + train_thumb/
 ENV_PREFIX="${ENV_PREFIX:-$REG2026/_envs/conch_dump_py311}"
-CONCH_CKPT="${CONCH_CKPT:?set CONCH_CKPT to the CONCH pytorch_model.bin path}"
+CONCH_CKPT="${CONCH_CKPT:-$REG2026/models/CONCH/pytorch_model.bin}"   # PJM doesn't propagate submit-shell env; default here
 OUT="${OUT:-$REG_ROOT/train_feat_conch}"
 NGPU="${NGPU:-4}"
 CAP="${CAP:-20480}"
@@ -45,7 +45,12 @@ BATCH="${BATCH:-256}"
 NWORKERS="${NWORKERS:-8}"                               # parallel patch-decode workers per GPU
 LOGDIR="${LOGDIR:-$REG2026/logs}"                       # absolute; always exists
 
-CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
+# conda base, self-contained (don't assume `conda` is on PATH)
+CONDA_BASE=""
+for cb in "$(conda info --base 2>/dev/null || true)" "$H_HOME/miniconda3" /home/pj24003162/ku40003404/miniconda3; do
+  [ -n "$cb" ] && [ -f "$cb/etc/profile.d/conda.sh" ] && { CONDA_BASE="$cb"; break; }
+done
+[ -n "$CONDA_BASE" ] || { echo "ERR: conda base not found"; exit 2; }
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 conda activate "$ENV_PREFIX"
 

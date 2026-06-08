@@ -34,7 +34,7 @@ REG2026="${REG2026:-$H_HOME/reg_2026}"
 SLIDECHAT="${SLIDECHAT:-$H_HOME/reg2026_slidechat_dev}"
 REG_ROOT="${REG_ROOT:-$REG2026/data/reg2026}"
 ENV_PREFIX="${ENV_PREFIX:-$REG2026/_envs/conch_dump_py311}"
-CONCH_CKPT="${CONCH_CKPT:?set CONCH_CKPT to the CONCH pytorch_model.bin path}"
+CONCH_CKPT="${CONCH_CKPT:-$REG2026/models/CONCH/pytorch_model.bin}"   # PJM doesn't propagate submit-shell env; default here
 OUT="${OUT:-$REG_ROOT/train_feat_conch}"
 LOGDIR="${LOGDIR:-$REG2026/logs}"
 N_SHARDS="${N_SHARDS:-8}"          # MUST match the --sparam range size (0-7 => 8); max 8 MIG slices
@@ -43,7 +43,12 @@ TISSUE_FRAC="${TISSUE_FRAC:-0.1}"
 BATCH="${BATCH:-256}"             # 256 fits MIG 1g.12gb (verified, ~27% faster than 128); lower if OOM
 NWORKERS="${NWORKERS:-4}"         # MIG gpu=1 gives ~4 CPU cores (match nproc; GPU-bound anyway)
 
-CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
+# conda base, self-contained (don't assume `conda` is on PATH)
+CONDA_BASE=""
+for cb in "$(conda info --base 2>/dev/null || true)" "$H_HOME/miniconda3" /home/pj24003162/ku40003404/miniconda3; do
+  [ -n "$cb" ] && [ -f "$cb/etc/profile.d/conda.sh" ] && { CONDA_BASE="$cb"; break; }
+done
+[ -n "$CONDA_BASE" ] || { echo "ERR: conda base not found"; exit 2; }
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 conda activate "$ENV_PREFIX"
 
