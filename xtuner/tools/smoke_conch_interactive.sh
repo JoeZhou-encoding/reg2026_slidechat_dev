@@ -24,6 +24,7 @@ ENV_PREFIX="${ENV_PREFIX:-$REG2026/_envs/conch_dump_py311}"
 CONCH_CKPT="${CONCH_CKPT:-$REG2026/models/CONCH/pytorch_model.bin}"
 OUT="${OUT:-$REG2026/tmp/conch_smoke_out}"
 LIMIT="${LIMIT:-3}"                                     # smoke: first few slides
+BATCH="${BATCH:-256}"                                   # lower (e.g. 64) on a MIG slice
 
 CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
@@ -45,7 +46,7 @@ rm -rf "$OUT"; mkdir -p "$OUT"
 t0=$(date +%s)
 python "$SLIDECHAT/xtuner/tools/extract_conch_features.py" \
   --root "$REG_ROOT" --conch "$CONCH_CKPT" --device cuda \
-  --cap 20480 --tissue-frac 0.1 --batch 256 \
+  --cap 20480 --tissue-frac 0.1 --batch "$BATCH" \
   --shard 0 --n-shards 1 --limit "$LIMIT" --out "$OUT"
 dt=$(( $(date +%s) - t0 ))
 echo "elapsed: ${dt}s for up to ${LIMIT} slides"
