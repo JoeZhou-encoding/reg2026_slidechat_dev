@@ -101,44 +101,87 @@ def select_tissue_patches(mask, H, W, patch_size=DEFAULT_PATCH,
 
 
 # ---------------------------------------------------------------------------
-# Decode + encode — `preprocess` and `encode_fn` are injected (real CONCH or mock)
+# Parallel decode + encode. Decoding JPEG tiles from the BigTIFF is the bottleneck
+# (CPU/IO-bound, ~10x the GPU forward), so patches are decoded by DataLoader worker
+# processes while the GPU encodes. `preprocess`/`encode_fn` are injected (real CONCH
+# or mock). encode_fn: list[preprocessed] -> np.ndarray (B, FEATURE_DIM).
 # ---------------------------------------------------------------------------
-def decode_and_encode(arr, coords, patch_size, preprocess, encode_fn, batch_size=256):
-    """Decode each patch from the lazy zarr array and encode in batches.
+class _PatchDataset:
+    """Decode one patch per index from the BigTIFF via tifffile+zarr. Re-opens the
+    file per worker process (zarr handles do not survive fork) — same trick as
+    pit_wsi_loader.py. __getitem__ -> (preprocessed_patch, (Y, X)) or None on failure."""
 
-    `preprocess`: PIL.Image -> preprocessed patch (torch tensor for real CONCH).
-    `encode_fn` : list[preprocessed] -> np.ndarray (B, FEATURE_DIM) float.
-    Patches that fail to decode (corrupt tile) or have the wrong shape are skipped;
-    returned features and coords stay aligned.
-    """
-    feats, kept = [], []
-    buf, buf_coords = [], []
+    def __init__(self, tiff_path, coords, patch_size, preprocess):
+        self.tiff_path = tiff_path
+        self.coords = coords
+        self.patch_size = patch_size
+        self.preprocess = preprocess
+        self._arr = None
+        self._store = None
+        self._pid = None
 
-    def flush():
-        if buf:
-            feats.append(np.asarray(encode_fn(buf), dtype=np.float32))
-            kept.extend(buf_coords)
-            buf.clear()
-            buf_coords.clear()
+    def _arr_for_worker(self):
+        import tifffile
+        import zarr
+        pid = os.getpid()
+        if self._arr is None or self._pid != pid:
+            self._store = tifffile.imread(self.tiff_path, aszarr=True, series=0, level=0)
+            self._arr = zarr.open(self._store, mode="r")
+            self._pid = pid
+        return self._arr
 
-    for (Y, X) in coords:
-        Y, X = int(Y), int(X)
+    def close(self):
         try:
-            patch = np.asarray(arr[Y:Y + patch_size, X:X + patch_size])
+            if self._store is not None:
+                self._store.close()
         except Exception:
-            continue
-        if patch.shape[0] != patch_size or patch.shape[1] != patch_size:
-            continue
+            pass
+        self._store = None
+        self._arr = None
+
+    def __len__(self):
+        return len(self.coords)
+
+    def __getitem__(self, i):
+        ps = self.patch_size
+        Y, X = int(self.coords[i][0]), int(self.coords[i][1])
+        try:
+            patch = np.asarray(self._arr_for_worker()[Y:Y + ps, X:X + ps])
+        except Exception:
+            return None
+        if patch.shape[0] != ps or patch.shape[1] != ps:
+            return None
         if patch.ndim == 2:
             patch = np.stack([patch] * 3, axis=-1)
         if patch.shape[2] == 4:
             patch = patch[:, :, :3]
-        buf.append(preprocess(Image.fromarray(patch.astype(np.uint8))))
-        buf_coords.append((Y, X))
-        if len(buf) >= batch_size:
-            flush()
-    flush()
+        return self.preprocess(Image.fromarray(patch.astype(np.uint8))), (int(Y), int(X))
 
+
+def _collate_keep(items):
+    """Drop failed (None) patches; return (list[preprocessed], list[(Y,X)])."""
+    items = [it for it in items if it is not None]
+    return [it[0] for it in items], [it[1] for it in items]
+
+
+def decode_and_encode(tiff_path, coords, patch_size, preprocess, encode_fn,
+                      batch_size=256, num_workers=0):
+    """Parallel-decode patches and encode in batches. Failed patches are dropped;
+    DataLoader preserves index order so features and coords stay aligned."""
+    from torch.utils.data import DataLoader
+    ds = _PatchDataset(tiff_path, coords, patch_size, preprocess)
+    loader = DataLoader(ds, batch_size=batch_size, shuffle=False,
+                        num_workers=num_workers, collate_fn=_collate_keep,
+                        pin_memory=False)
+    feats, kept = [], []
+    try:
+        for buf, buf_coords in loader:
+            if not buf:
+                continue
+            feats.append(np.asarray(encode_fn(buf), dtype=np.float32))
+            kept.extend(buf_coords)
+    finally:
+        ds.close()
     if feats:
         F = np.concatenate(feats, axis=0).astype(np.float32)
     else:
@@ -170,7 +213,7 @@ def write_features_h5(out_path, feats, coords, slide_id, H, W,
 
 def extract_one_wsi(tiff_path, mask_path, out_path, encode_fn, preprocess,
                     patch_size=DEFAULT_PATCH, cap=DEFAULT_CAP,
-                    tissue_frac=DEFAULT_TISSUE_FRAC, batch_size=256):
+                    tissue_frac=DEFAULT_TISSUE_FRAC, batch_size=256, num_workers=0):
     """Extract+save features for one slide. Returns a status dict (never raises)."""
     import tifffile
     import zarr
@@ -185,9 +228,11 @@ def extract_one_wsi(tiff_path, mask_path, out_path, encode_fn, preprocess,
     try:
         # series=0, level=0: pyramidal/multi-series slides otherwise make aszarr
         # return a zarr Group (no .shape). This forces the full-res base Array.
+        # Open just to read H,W, then close — decode workers re-open the file.
         store = tifffile.imread(tiff_path, aszarr=True, series=0, level=0)
-        arr = zarr.open(store, mode="r")
-        H, W = arr.shape[:2]
+        H, W = zarr.open(store, mode="r").shape[:2]
+        store.close()
+        store = None
 
         mask = np.asarray(Image.open(mask_path))
         if mask.ndim == 3:
@@ -197,8 +242,8 @@ def extract_one_wsi(tiff_path, mask_path, out_path, encode_fn, preprocess,
         if len(coords) == 0:
             return {"slide": slide_id, "status": "no_tissue", "H": H, "W": W}
 
-        feats, kept = decode_and_encode(arr, coords, patch_size,
-                                        preprocess, encode_fn, batch_size)
+        feats, kept = decode_and_encode(tiff_path, coords, patch_size,
+                                        preprocess, encode_fn, batch_size, num_workers)
         if len(feats) == 0:
             return {"slide": slide_id, "status": "decode_fail",
                     "n_candidates": int(len(coords))}
@@ -263,6 +308,8 @@ def parse_args():
     p.add_argument("--cap", type=int, default=DEFAULT_CAP)
     p.add_argument("--tissue-frac", type=float, default=DEFAULT_TISSUE_FRAC)
     p.add_argument("--batch", type=int, default=256)
+    p.add_argument("--num-workers", type=int, default=8,
+                   help="parallel patch-decode workers (decode is the bottleneck)")
     p.add_argument("--shard", type=int, default=0)
     p.add_argument("--n-shards", type=int, default=1)
     p.add_argument("--limit", type=int, default=None, help="process first N slides (smoke)")
@@ -288,7 +335,7 @@ def main():
     print(f"out dir     : {out_dir}")
     print(f"shard       : {args.shard}/{args.n_shards}  -> {len(mine)} slides this shard")
     print(f"patch={args.patch_size} cap={args.cap} tissue_frac={args.tissue_frac} "
-          f"batch={args.batch} device={args.device}", flush=True)
+          f"batch={args.batch} num_workers={args.num_workers} device={args.device}", flush=True)
 
     encode_fn, preprocess = build_conch(args.conch, device=args.device)
     print("CONCH loaded.", flush=True)
@@ -305,7 +352,8 @@ def main():
 
             r = extract_one_wsi(tiff, mask_path, out_path, encode_fn, preprocess,
                                 patch_size=args.patch_size, cap=args.cap,
-                                tissue_frac=args.tissue_frac, batch_size=args.batch)
+                                tissue_frac=args.tissue_frac, batch_size=args.batch,
+                                num_workers=args.num_workers)
             st = r["status"] if r["status"] in ("ok", "skip", "no_mask", "no_tissue",
                                                 "decode_fail") else "err"
             counts[st] = counts.get(st, 0) + 1

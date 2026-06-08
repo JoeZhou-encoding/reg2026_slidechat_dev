@@ -25,6 +25,7 @@ CONCH_CKPT="${CONCH_CKPT:-$REG2026/models/CONCH/pytorch_model.bin}"
 OUT="${OUT:-$REG2026/tmp/conch_smoke_out}"
 LIMIT="${LIMIT:-3}"                                     # smoke: first few slides
 BATCH="${BATCH:-256}"                                   # lower (e.g. 64) on a MIG slice
+NWORKERS="${NWORKERS:-8}"                               # parallel patch-decode workers
 
 CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
@@ -46,7 +47,7 @@ rm -rf "$OUT"; mkdir -p "$OUT"
 t0=$(date +%s)
 python "$SLIDECHAT/xtuner/tools/extract_conch_features.py" \
   --root "$REG_ROOT" --conch "$CONCH_CKPT" --device cuda \
-  --cap 20480 --tissue-frac 0.1 --batch "$BATCH" \
+  --cap 20480 --tissue-frac 0.1 --batch "$BATCH" --num-workers "$NWORKERS" \
   --shard 0 --n-shards 1 --limit "$LIMIT" --out "$OUT"
 dt=$(( $(date +%s) - t0 ))
 echo "elapsed: ${dt}s for up to ${LIMIT} slides"
@@ -75,6 +76,7 @@ sys.exit(0 if ok else 1)
 PY
 rc=$?
 echo "================= done (rc=$rc) ================="
-echo "Per-slide time ~ $(python -c "print(f'{$dt/$LIMIT:.1f}')")s  ->  11220 slides / 4 GPU ≈ "
-python -c "print(f'{11220*$dt/$LIMIT/4/3600:.1f} h (rough; big PIT_02 slides are the tail)')"
+echo "Wall: ${dt}s for ${LIMIT} slide(s)  (includes a one-time ~60-70s CONCH load)."
+echo "Steady-state per-slide is lower than ${dt}/${LIMIT}s; for the full dump over N"
+echo "parallel shards, wall-time ~ (steady_per_slide * masked_slides) / N. NWORKERS=$NWORKERS."
 exit $rc

@@ -42,6 +42,7 @@ NGPU="${NGPU:-4}"
 CAP="${CAP:-20480}"
 TISSUE_FRAC="${TISSUE_FRAC:-0.1}"
 BATCH="${BATCH:-256}"
+NWORKERS="${NWORKERS:-8}"                               # parallel patch-decode workers per GPU
 LOGDIR="${LOGDIR:-$REG2026/logs}"                       # absolute; always exists
 
 CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
@@ -68,7 +69,7 @@ pids=()
 for g in $(seq 0 $((NGPU - 1))); do
   CUDA_VISIBLE_DEVICES="$g" python "$SLIDECHAT/xtuner/tools/extract_conch_features.py" \
     --root "$REG_ROOT" --conch "$CONCH_CKPT" --device cuda \
-    --cap "$CAP" --tissue-frac "$TISSUE_FRAC" --batch "$BATCH" \
+    --cap "$CAP" --tissue-frac "$TISSUE_FRAC" --batch "$BATCH" --num-workers "$NWORKERS" \
     --shard "$g" --n-shards "$NGPU" --out "$OUT" \
     > "$LOGDIR/conch_dump.${PJM_JOBID:-local}.gpu${g}.log" 2>&1 &
   pids+=($!)

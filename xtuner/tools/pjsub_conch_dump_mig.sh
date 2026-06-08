@@ -41,6 +41,7 @@ N_SHARDS="${N_SHARDS:-8}"          # MUST match the --sparam range size (0-7 => 
 CAP="${CAP:-20480}"
 TISSUE_FRAC="${TISSUE_FRAC:-0.1}"
 BATCH="${BATCH:-128}"             # MIG has less memory than a full H100; lower if OOM
+NWORKERS="${NWORKERS:-8}"         # parallel patch-decode workers (decode is the bottleneck)
 
 CONDA_BASE="${CONDA_BASE:-$(conda info --base 2>/dev/null || true)}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
@@ -63,7 +64,7 @@ nvidia-smi --query-gpu=index,name,memory.total --format=csv,noheader || true
 # One MIG slice = one visible device -> --device cuda. One shard, one process.
 python "$SLIDECHAT/xtuner/tools/extract_conch_features.py" \
   --root "$REG_ROOT" --conch "$CONCH_CKPT" --device cuda \
-  --cap "$CAP" --tissue-frac "$TISSUE_FRAC" --batch "$BATCH" \
+  --cap "$CAP" --tissue-frac "$TISSUE_FRAC" --batch "$BATCH" --num-workers "$NWORKERS" \
   --shard "$SHARD" --n-shards "$N_SHARDS" --out "$OUT" \
   2>&1 | tee "$LOGDIR/conch_dump_mig.shard${SHARD}of${N_SHARDS}.${PJM_JOBID:-local}.log"
 rc=${PIPESTATUS[0]}
