@@ -42,13 +42,16 @@ def main():
     print(f"device={dev}  visual_dim={D}  H_llm={args.h_llm}")
 
     # ---- LongNet: variable length, output dim ----
-    ln = make_longnet_from_name("LongNet_{}_layers_{}_dim".format(2, D)).to(dev).eval()
-    print("\n[LongNet] token_embeddings [N,1,%d] -> encoder_out  (mirrors model/llava.py:334)" % D)
+    # flash-attn only supports fp16/bf16 (training runs bf16 via AMP) -> use bf16 on CUDA.
+    ln_dtype = torch.bfloat16 if dev.type == "cuda" else torch.float32
+    ln = make_longnet_from_name("LongNet_{}_layers_{}_dim".format(2, D)).to(dev).to(ln_dtype).eval()
+    print("\n[LongNet] token_embeddings [N,1,%d] (%s) -> encoder_out  "
+          "(mirrors model/llava.py:334; flash needs fp16/bf16, training uses bf16)" % (D, ln_dtype))
     ln_dim = None
     bad = []
     for N in args.ns:
         try:
-            x = torch.randn(N, 1, D, device=dev)             # (seq, batch=1, dim)
+            x = torch.randn(N, 1, D, device=dev, dtype=ln_dtype)   # (seq, batch=1, dim), bf16
             with torch.no_grad():
                 out = ln(src_tokens=None, token_embeddings=x)["encoder_out"]
             ln_dim = out.shape[-1]
