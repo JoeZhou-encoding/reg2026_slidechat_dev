@@ -1,0 +1,48 @@
+{
+  "source": "train_CoT_v01.json",
+  "version": "v01",
+  "seed": 2026,
+  "frac": 0.05,
+  "split_key": "case id",
+  "stratify": "organ",
+  "n_total": 11220,
+  "n_test": 562,
+  "n_train": 10658,
+  "per_organ": {
+    "bladder": {
+      "total": 1079,
+      "test": 54,
+      "train": 1025
+    },
+    "breast": {
+      "total": 2213,
+      "test": 111,
+      "train": 2102
+    },
+    "cervix": {
+      "total": 812,
+      "test": 41,
+      "train": 771
+    },
+    "colon": {
+      "total": 1996,
+      "test": 100,
+      "train": 1896
+    },
+    "lung": {
+      "total": 945,
+      "test": 47,
+      "train": 898
+    },
+    "prostate": {
+      "total": 2418,
+      "test": 121,
+      "train": 2297
+    },
+    "stomach": {
+      "total": 1757,
+      "test": 88,
+      "train": 1669
+    }
+  }
+}

@@ -1,0 +1,2360 @@
+[
+  {
+    "id": "PIT_01_09887_02.tiff",
+    "organ": "bladder",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Urinary bladder\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Urinary bladder",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Urinary bladder\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Urinary bladder",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder.\nQuestion: What is the procedure?\nOptions:\nA. Transurethral resection\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Transurethral resection",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder.\nQuestion: What is the procedure?\nOptions:\nA. Transurethral resection\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Transurethral resection",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "No, there is no abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any muscularis propria present?\nOptions:\nA. Yes, there is a muscularis propria.\nB. No, there is no muscularis propria.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a muscularis propria.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nC. 3\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "No tumor present",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Urinary bladder, transurethral resection;\\n  No tumor present\\n\\nNote) The specimen includes muscle proper.",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_00030_01.tiff",
+    "organ": "breast",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Breast\nB. Nipple\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Breast",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast.\nQuestion: What is the procedure?\nOptions:\nA. Core needle biopsy\nB. Mammotome biopsy\nC. Stereotactic biopsy\nD. Aspiration biopsy\nE. Punch biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 5,
+        "gt_answer": "Core needle biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any microcalcification present?\nOptions:\nA. No, there is no microcalcification.\nB. Yes, there is a microcalcification.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no microcalcification.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any proliferative lesion present?\nOptions:\nA. Yes, there is a proliferative lesion.\nB. No, there is no proliferative lesion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a proliferative lesion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any invasion present?\nOptions:\nA. Yes, there is an invasion.\nB. No, there is no invasion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an invasion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Mammary",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Invasive breast carcinoma of no special type\nB. Invasive lobular carcinoma\nC. Mucinous carcinoma\nD. Invasive carcinoma with features of mucinous carcinoma\nE. Invasive micropapillary carcinoma\nF. Malignant lymphoma\nG. Micro-invasive carcinoma\nH. Carcinoma with apocrine differentiation\nI. Metaplastic carcinoma\nJ. Invasive carcinoma with mixed ductal and lobular features\nK. Invasive cribriform carcinoma\nL. Tubular carcinoma\nM. Pleomorphic lobular carcinoma\nN. Solid papillary carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 14,
+        "gt_answer": "Invasive breast carcinoma of no special type",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Nottingham combined histologic grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Nottingham combined histologic grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Nottingham combined histologic grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Nottingham combined histologic grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Nottingham combined histologic grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Nottingham combined histologic grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the score for tubular differentiation?\nOptions:\nA. 3\nB. 2\nC. 1\nAnswer with the option letter only.",
+        "target": "C",
+        "n_options": 3,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the score for nuclear pleomorphism?\nOptions:\nA. 2\nB. 3\nC. 1\nAnswer with the option letter only.",
+        "target": "C",
+        "n_options": 3,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the score for mitotic rate?\nOptions:\nA. 1\nB. 2\nC. 3\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy; score for tubular differentiation: 1; score for nuclear pleomorphism: 1; score for mitotic rate: 1.\nQuestion: What is the overall score?\nOptions:\nA. 6\nB. 7\nC. 5\nD. 8\nE. 4\nF. 9\nG. 3\nAnswer with the option letter only.",
+        "target": "G",
+        "n_options": 7,
+        "gt_answer": "3",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "score for tubular differentiation",
+          "score for nuclear pleomorphism",
+          "score for mitotic rate"
+        ],
+        "semantic_parents_used": [
+          "score for tubular differentiation",
+          "score for nuclear pleomorphism",
+          "score for mitotic rate"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy; overall score: 3.\nQuestion: What is the grade of neoplasm?\nOptions:\nA. Grade II\nB. Grade I\nC. Grade III\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 3,
+        "gt_answer": "Grade I",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "overall score"
+        ],
+        "semantic_parents_used": [
+          "overall score"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nC. 3\nD. 4\nE. Papillary neoplasm\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 5,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Invasive carcinoma of no special type, grade I",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Breast, core needle biopsy;\\n  Invasive carcinoma of no special type, grade I (Tubule formation: 1, Nuclear grade: 1, Mitoses: 1)",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_02992_01.tiff",
+    "organ": "cervix",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Uterine cervix\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Uterine cervix",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix.\nQuestion: What is the procedure?\nOptions:\nA. Colposcopic biopsy\nB. Punch biopsy\nC. Loop electrosurgical excision procedure\nD. Polypectomy\nE. Curette biopsy\nF. Frozen biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 6,
+        "gt_answer": "Colposcopic biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the behavior of neoplasm?\nOptions:\nA. Benign\nB. In situ\nC. Malignant\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Benign",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Cervical",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Squamous intraepithelial lesion\nB. Squamous cell carcinoma\nC. Endocervical adenocarcinoma in situ\nD. Endocervical adenocarcinoma\nE. Endometrioid carcinoma\nF. Adenocarcinoma, favor colorectal primary\nG. Serous carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 7,
+        "gt_answer": "Squamous intraepithelial lesion",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Squamous intraepithelial lesion\nB. Squamous cell carcinoma\nC. Endocervical adenocarcinoma in situ\nD. Endocervical adenocarcinoma\nE. Endometrioid carcinoma\nF. Adenocarcinoma, favor colorectal primary\nG. Serous carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 7,
+        "gt_answer": "Squamous intraepithelial lesion",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the grading system of atypia?\nOptions:\nA. 3-tier grading system\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "3-tier grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the grade of atypia?\nOptions:\nA. Grade 1\nB. Grade 3\nC. Grade 2\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Grade 1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any glandular involvement present?\nOptions:\nA. No, there is no glandular involvement.\nB. Yes, there is a glandular involvement.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no glandular involvement.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Uterine cervix, colposcopic biopsy;\\n  Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_03801_01.tiff",
+    "organ": "colon",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Colon\nB. Rectum\nC. Anus\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Colon",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon.\nQuestion: What is the procedure?\nOptions:\nA. Colonoscopic biopsy\nB. Colonoscopic polypectomy\nC. Colonoscopic mucosal resection\nD. Colonoscopic submucosal dissection\nE. Incisional biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 5,
+        "gt_answer": "Colonoscopic biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: What is the behavior of neoplasm?\nOptions:\nA. Benign\nB. Malignant\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Malignant",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Colorectal",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Adenocarcinoma\nB. Tubular adenoma\nC. Hyperplastic polyp\nD. Tubulovillous adenoma\nE. Sessile serrated lesion\nF. Neuroendocrine tumor\nG. Malignant lymphoma\nH. Traditional serrated adenoma\nI. Extranodal marginal zone lymphoma of mucosa-associated lymphoid tissue (MALT lymphoma)\nJ. Squamous cell carcinoma\nK. Gastrointestinal stromal tumor\nL. Small cell carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 12,
+        "gt_answer": "Adenocarcinoma",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy; histologic type of neoplasm: Adenocarcinoma.\nQuestion: What is the histologic subtype of neoplasm?\nOptions:\nA. Adenocarcinoma, not otherwise specified\nB. Mucinous adenocarcinoma\nC. Adenocarcinoma with mucinous component\nD. Signet-ring cell carcinoma\nAnswer with the option letter only.",
+        "target": "C",
+        "n_options": 4,
+        "gt_answer": "Adenocarcinoma with mucinous component",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "histologic type of neoplasm"
+        ],
+        "semantic_parents_used": [
+          "histologic type of neoplasm"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: What is the grading system of neoplasm?\nOptions:\nA. 3-tier grading system\nB. WHO grading system of neuroendocrine neoplasms\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "3-tier grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: What is the grade of neoplasm?\nOptions:\nA. Moderately differentiated\nB. Well differentiated\nC. Poorly differentiated\nD. Grade 1\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 4,
+        "gt_answer": "Moderately differentiated",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Colon; procedure: Colonoscopic biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Adenocarcinoma, moderately differentiated with mucinous component",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Colon, colonoscopic biopsy;\\n  Adenocarcinoma, moderately differentiated with mucinous component",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_04834_01.tiff",
+    "organ": "lung",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Lung\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Lung",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung.\nQuestion: What is the procedure?\nOptions:\nA. Biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: What is the behavior of neoplasm?\nOptions:\nA. Malignant\nB. Benign\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Malignant",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Pulmonary",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any neuroendocrine morphology present?\nOptions:\nA. No, there is no neuroendocrine morphology.\nB. Yes, there is a neuroendocrine morphology.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no neuroendocrine morphology.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any neuroendocrine morphology present?\nOptions:\nA. No, there is no neuroendocrine morphology.\nB. Yes, there is a neuroendocrine morphology.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no neuroendocrine morphology.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any morphological adenocarcinoma pattern present?\nOptions:\nA. Yes, there is a morphological adenocarcinoma pattern.\nB. No, there is no morphological adenocarcinoma pattern.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "No, there is no morphological adenocarcinoma pattern.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any morphological squamous cell pattern present?\nOptions:\nA. No, there is no morphological squamous cell pattern.\nB. Yes, there is a morphological squamous cell pattern.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a morphological squamous cell pattern.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Adenocarcinoma\nB. Squamous cell carcinoma\nC. Non-small cell carcinoma\nD. Small cell carcinoma\nE. Invasive mucinous adenocarcinoma\nF. Metastatic adenocarcinoma, from colorectal primary\nG. Carcinoid/neuroendocrine tumor, NOS\nH. Large cell neuroendocrine carcinoma\nI. Sclerosing pneumocytoma\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 9,
+        "gt_answer": "Squamous cell carcinoma",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Lung; procedure: Biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Squamous cell carcinoma",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Lung, biopsy;\\n  Squamous cell carcinoma",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_05716_01.tiff",
+    "organ": "prostate",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Prostate\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Prostate",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate.\nQuestion: What is the procedure?\nOptions:\nA. Biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the behavior of neoplasm?\nOptions:\nA. Malignant\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Malignant",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Prostate",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Acinar adenocarcinoma\nB. Malignant lymphoma\nC. Small cell carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Acinar adenocarcinoma",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Acinar adenocarcinoma\nB. Malignant lymphoma\nC. Small cell carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Acinar adenocarcinoma",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Gleason grading system\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Gleason grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Gleason grading system\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Gleason grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Gleason grading system\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Gleason grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any Gleason pattern 3 present?\nOptions:\nA. Yes, there is Gleason pattern 3.\nB. No, there is no Gleason pattern 3.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is Gleason pattern 3.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any Gleason pattern 4 present?\nOptions:\nA. Yes, there is Gleason pattern 4.\nB. No, there is no Gleason pattern 4.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is Gleason pattern 4.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any Gleason pattern 5 present?\nOptions:\nA. No, there is no Gleason pattern 5.\nB. Yes, there is Gleason pattern 5.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no Gleason pattern 5.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the pridominant pattern?\nOptions:\nA. Gleason pattern 3\nB. Gleason pattern 4\nC. Gleason pattern 5\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Gleason pattern 3",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the secondary pattern constituting more than 5% of tumor?\nOptions:\nA. Not identified\nB. Gleason pattern 4\nC. Gleason pattern 3\nD. Gleason pattern 5\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 4,
+        "gt_answer": "Gleason pattern 4",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy; pridominant pattern: Gleason pattern 3; secondary pattern constituting more than 5% of tumor: Gleason pattern 4.\nQuestion: What is the worst grade pattern?\nOptions:\nA. Gleason pattern 4\nB. Gleason pattern 3\nC. Gleason pattern 5\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Gleason pattern 4",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "pridominant pattern",
+          "secondary pattern constituting more than 5% of tumor"
+        ],
+        "semantic_parents_used": [
+          "pridominant pattern",
+          "secondary pattern constituting more than 5% of tumor"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy; pridominant pattern: Gleason pattern 3; secondary pattern constituting more than 5% of tumor: Gleason pattern 4.\nQuestion: What is the Gleason score?\nOptions:\nA. 7 (3+4)\nB. 6 (3+3)\nC. 7 (4+3)\nD. 8 (4+4)\nE. 9 (4+5)\nF. 9 (5+4)\nG. 10 (5+5)\nH. 8 (3+5)\nI. 8 (5+3)\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 9,
+        "gt_answer": "7 (3+4)",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "pridominant pattern",
+          "secondary pattern constituting more than 5% of tumor"
+        ],
+        "semantic_parents_used": [
+          "pridominant pattern",
+          "secondary pattern constituting more than 5% of tumor"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy; pridominant pattern: Gleason pattern 3; secondary pattern constituting more than 5% of tumor: Gleason pattern 4.\nQuestion: What is the Gleason score?\nOptions:\nA. 7 (3+4)\nB. 6 (3+3)\nC. 7 (4+3)\nD. 8 (4+4)\nE. 9 (4+5)\nF. 9 (5+4)\nG. 10 (5+5)\nH. 8 (3+5)\nI. 8 (5+3)\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 9,
+        "gt_answer": "7 (3+4)",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "pridominant pattern",
+          "secondary pattern constituting more than 5% of tumor"
+        ],
+        "semantic_parents_used": [
+          "pridominant pattern",
+          "secondary pattern constituting more than 5% of tumor"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy; Gleason score: 7 (3+4).\nQuestion: What is the grade group?\nOptions:\nA. Grade group 1\nB. Grade group 2\nC. Grade group 4\nD. Grade group 3\nE. Grade group 5\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 5,
+        "gt_answer": "Grade group 2",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "Gleason score"
+        ],
+        "semantic_parents_used": [
+          "Gleason score"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy; Gleason score: 7 (3+4).\nQuestion: What is the percentage of Gleason pattern 4?\nOptions:\nA. 10%\nB. 40%\nC. 60%\nD. 20%\nE. 80%\nF. 90%\nG. 30%\nH. 70%\nI. 5%\nJ. 15%\nK. 85%\nL. 75%\nM. 95%\nN. 25%\nO. 50%\nP. 65%\nQ. 3%\nR. 35%\nS. 45%\nT. 55%\nAnswer with the option letter only.",
+        "target": "D",
+        "n_options": 20,
+        "gt_answer": "20%",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "Gleason score"
+        ],
+        "semantic_parents_used": [
+          "Gleason score"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the tumor volume?\nOptions:\nA. 90%\nB. 100%\nC. 50%\nD. 80%\nE. 70%\nF. 10%\nG. 20%\nH. 30%\nI. 60%\nJ. 5%\nK. 40%\nL. 95%\nM. 15%\nN. 25%\nO. 3%\nP. 75%\nQ. 65%\nR. 35%\nS. 55%\nT. 85%\nU. 66%\nV. 7%\nW. 1%\nX. 33%\nY. 45%\nZ. 14%\nAA. 22%\nAB. 4%\nAC. 57%\nAD. 62%\nAE. 78%\nAF. 83%\nAG. 88%\nAH. 96%\nAnswer with the option letter only.",
+        "target": "K",
+        "n_options": 34,
+        "gt_answer": "40%",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Prostate; procedure: Biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Acinar adenocarcinoma",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Prostate, biopsy;\\n  Acinar adenocarcinoma, Gleason's score 7 (3+4), grade group 2 (Gleason pattern 4: 20%), tumor volume: 40%",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_07684_01.tiff",
+    "organ": "stomach",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Stomach\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Stomach",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach.\nQuestion: What is the procedure?\nOptions:\nA. Endoscopic biopsy\nB. Endoscopic submucosal dissection\nC. Endoscopic mucosal resection\nD. Endoscopic polypectomy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 4,
+        "gt_answer": "Endoscopic biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "No, there is no neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any polyp present?\nOptions:\nA. No, there is no polyp.\nB. Yes, there is a polyp.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no polyp.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any active inflammation present?\nOptions:\nA. No, there is no active inflammation.\nB. Yes, there is an active inflammation.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an active inflammation.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any active inflammation present?\nOptions:\nA. No, there is no active inflammation.\nB. Yes, there is an active inflammation.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an active inflammation.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any active inflammation present?\nOptions:\nA. No, there is no active inflammation.\nB. Yes, there is an active inflammation.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an active inflammation.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any active inflammation present?\nOptions:\nA. No, there is no active inflammation.\nB. Yes, there is an active inflammation.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an active inflammation.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any lymphoid aggregate present?\nOptions:\nA. No, there is no lymphoid aggregate.\nB. Yes, there is a lymphoid aggregate.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no lymphoid aggregate.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any ulceration present?\nOptions:\nA. No, there is no ulceration.\nB. Yes, there is an ulceration.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no ulceration.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any intestinal metaplasia present?\nOptions:\nA. Yes, there is an intestinal metaplasia.\nB. No, there is no intestinal metaplasia.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "No, there is no intestinal metaplasia.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any foveolar epithelial hyperplasia present?\nOptions:\nA. No, there is no foveolar epithelial hyperplasia.\nB. Yes, there is a foveolar epithelial hyperplasia.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no foveolar epithelial hyperplasia.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Stomach; procedure: Endoscopic biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Chronic active gastritis",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Stomach, endoscopic biopsy;\\n  Chronic active gastritis",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_09948_03.tiff",
+    "organ": "bladder",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Urinary bladder\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Urinary bladder",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Urinary bladder\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Urinary bladder",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder.\nQuestion: What is the procedure?\nOptions:\nA. Transurethral resection\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Transurethral resection",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder.\nQuestion: What is the procedure?\nOptions:\nA. Transurethral resection\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Transurethral resection",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any muscularis propria present?\nOptions:\nA. Yes, there is a muscularis propria.\nB. No, there is no muscularis propria.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a muscularis propria.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: What is the behavior of neoplasm?\nOptions:\nA. Malignant\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Malignant",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Urothelial",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any invasion present?\nOptions:\nA. No, there is no invasion.\nB. Yes, there is a invasion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no invasion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any papillary lesion present?\nOptions:\nA. Yes, there is a papillary lesion.\nB. No, there is no papillary lesion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a papillary lesion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: What is the grading system of dysplasia?\nOptions:\nA. 2-tier grading system\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "2-tier grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: What is the grade of dysplasia?\nOptions:\nA. High grade\nB. Low grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "High grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection; invasion: No, there is no invasion.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Invasive urothelial carcinoma\nB. Non-invasive papillary urothelial carcinoma\nC. Urothelial carcinoma in situ\nD. Non-invasive papillary urothelial carcinoma with squamous differentiation\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 4,
+        "gt_answer": "Non-invasive papillary urothelial carcinoma",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "invasion"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [
+          "is there any invasion present"
+        ],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection; additional finding: Yes, there is an additional finding.\nQuestion: Is there any associated epithelial lesion present?\nOptions:\nA. Yes, there is an associated epithelial lesion.\nB. No, there is no associated epithelial lesion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an associated epithelial lesion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "additional finding"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [
+          "is there any additional finding present"
+        ],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection; papillary lesion: Yes, there is a papillary lesion.\nQuestion: Is there any invasion present?\nOptions:\nA. No, there is no invasion.\nB. Yes, there is a invasion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no invasion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "papillary lesion"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [
+          "is there any papillary lesion present"
+        ],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: Is there any papillary lesion present?\nOptions:\nA. Yes, there is a papillary lesion.\nB. No, there is no papillary lesion.\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 2,
+        "gt_answer": "No, there is no papillary lesion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection; invasion: No, there is no invasion.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Invasive urothelial carcinoma\nB. Non-invasive papillary urothelial carcinoma\nC. Urothelial carcinoma in situ\nD. Non-invasive papillary urothelial carcinoma with squamous differentiation\nAnswer with the option letter only.",
+        "target": "C",
+        "n_options": 4,
+        "gt_answer": "Urothelial carcinoma in situ",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "invasion"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [
+          "is there any invasion present"
+        ],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection; associated epithelial lesion: Yes, there is an associated epithelial lesion.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "associated epithelial lesion"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [
+          "is there any associated epithelial lesion present"
+        ],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Urinary bladder; procedure: Transurethral resection.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nC. 3\nAnswer with the option letter only.",
+        "target": "B",
+        "n_options": 3,
+        "gt_answer": "2",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Non-invasive papillary urothelial carcinoma, high grade",
+        "assembled": true
+      },
+      {
+        "question": "What is the #2 diagnosis?",
+        "answer": "Urothelial carcinoma in situ",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Urinary bladder, transurethral resection;\\n  1. Non-invasive papillary urothelial carcinoma, high grade\\n  2. Urothelial carcinoma in situ\\n\\nNote) The specimen includes muscle proper.",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_00045_01.tiff",
+    "organ": "breast",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Breast\nB. Nipple\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Breast",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast.\nQuestion: What is the procedure?\nOptions:\nA. Core needle biopsy\nB. Mammotome biopsy\nC. Stereotactic biopsy\nD. Aspiration biopsy\nE. Punch biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 5,
+        "gt_answer": "Core needle biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any microcalcification present?\nOptions:\nA. No, there is no microcalcification.\nB. Yes, there is a microcalcification.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no microcalcification.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any proliferative lesion present?\nOptions:\nA. Yes, there is a proliferative lesion.\nB. No, there is no proliferative lesion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a proliferative lesion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any invasion present?\nOptions:\nA. Yes, there is an invasion.\nB. No, there is no invasion.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an invasion.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Mammary",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Invasive breast carcinoma of no special type\nB. Invasive lobular carcinoma\nC. Mucinous carcinoma\nD. Invasive carcinoma with features of mucinous carcinoma\nE. Invasive micropapillary carcinoma\nF. Malignant lymphoma\nG. Micro-invasive carcinoma\nH. Carcinoma with apocrine differentiation\nI. Metaplastic carcinoma\nJ. Invasive carcinoma with mixed ductal and lobular features\nK. Invasive cribriform carcinoma\nL. Tubular carcinoma\nM. Pleomorphic lobular carcinoma\nN. Solid papillary carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 14,
+        "gt_answer": "Invasive breast carcinoma of no special type",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Nottingham combined histologic grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Nottingham combined histologic grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Nottingham combined histologic grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Nottingham combined histologic grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the grading system?\nOptions:\nA. Nottingham combined histologic grade\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Nottingham combined histologic grade",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the score for tubular differentiation?\nOptions:\nA. 3\nB. 2\nC. 1\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "3",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the score for nuclear pleomorphism?\nOptions:\nA. 2\nB. 3\nC. 1\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "2",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the score for mitotic rate?\nOptions:\nA. 1\nB. 2\nC. 3\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy; score for tubular differentiation: 3; score for nuclear pleomorphism: 2; score for mitotic rate: 1.\nQuestion: What is the overall score?\nOptions:\nA. 6\nB. 7\nC. 5\nD. 8\nE. 4\nF. 9\nG. 3\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 7,
+        "gt_answer": "6",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "score for tubular differentiation",
+          "score for nuclear pleomorphism",
+          "score for mitotic rate"
+        ],
+        "semantic_parents_used": [
+          "score for tubular differentiation",
+          "score for nuclear pleomorphism",
+          "score for mitotic rate"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy; overall score: 6.\nQuestion: What is the grade of neoplasm?\nOptions:\nA. Grade II\nB. Grade I\nC. Grade III\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Grade II",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure",
+          "overall score"
+        ],
+        "semantic_parents_used": [
+          "overall score"
+        ],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Breast; procedure: Core needle biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nC. 3\nD. 4\nE. Papillary neoplasm\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 5,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Invasive carcinoma of no special type, grade II",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Breast, core needle biopsy;\\n  Invasive carcinoma of no special type, grade II (Tubule formation: 3, Nuclear grade: 2, Mitoses: 1)",
+        "assembled": true
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_02995_01.tiff",
+    "organ": "cervix",
+    "steps": [
+      {
+        "prompt": "<image>\nQuestion: What is the organ?\nOptions:\nA. Uterine cervix\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "Uterine cervix",
+        "gt_in_options": true,
+        "prefix": [],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix.\nQuestion: What is the procedure?\nOptions:\nA. Colposcopic biopsy\nB. Punch biopsy\nC. Loop electrosurgical excision procedure\nD. Polypectomy\nE. Curette biopsy\nF. Frozen biopsy\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 6,
+        "gt_answer": "Colposcopic biopsy",
+        "gt_in_options": true,
+        "prefix": [
+          "organ"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any abnormality present?\nOptions:\nA. Yes, there is an abnormality.\nB. No, there is no abnormality.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is an abnormality.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any neoplasm present?\nOptions:\nA. Yes, there is a neoplasm.\nB. No, there is no neoplasm.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "Yes, there is a neoplasm.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the behavior of neoplasm?\nOptions:\nA. Benign\nB. In situ\nC. Malignant\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Benign",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Cervical",
+        "assembled": true
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Squamous intraepithelial lesion\nB. Squamous cell carcinoma\nC. Endocervical adenocarcinoma in situ\nD. Endocervical adenocarcinoma\nE. Endometrioid carcinoma\nF. Adenocarcinoma, favor colorectal primary\nG. Serous carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 7,
+        "gt_answer": "Squamous intraepithelial lesion",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the histologic type of neoplasm?\nOptions:\nA. Squamous intraepithelial lesion\nB. Squamous cell carcinoma\nC. Endocervical adenocarcinoma in situ\nD. Endocervical adenocarcinoma\nE. Endometrioid carcinoma\nF. Adenocarcinoma, favor colorectal primary\nG. Serous carcinoma\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 7,
+        "gt_answer": "Squamous intraepithelial lesion",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the grading system of atypia?\nOptions:\nA. 3-tier grading system\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 1,
+        "gt_answer": "3-tier grading system",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the grade of atypia?\nOptions:\nA. Grade 1\nB. Grade 3\nC. Grade 2\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 3,
+        "gt_answer": "Grade 1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any glandular involvement present?\nOptions:\nA. No, there is no glandular involvement.\nB. Yes, there is a glandular involvement.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no glandular involvement.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: Is there any additional finding present?\nOptions:\nA. No, there is no additional finding.\nB. Yes, there is an additional finding.\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "No, there is no additional finding.",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "prompt": "<image>\nContext: organ: Uterine cervix; procedure: Colposcopic biopsy.\nQuestion: What is the number of diagnoses to includes?\nOptions:\nA. 1\nB. 2\nAnswer with the option letter only.",
+        "target": "A",
+        "n_options": 2,
+        "gt_answer": "1",
+        "gt_in_options": true,
+        "prefix": [
+          "organ",
+          "procedure"
+        ],
+        "semantic_parents_used": [],
+        "coupled_prefix": [],
+        "over_26": false
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "assembled": true
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Uterine cervix, colposcopic biopsy;\\n  Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "assembled": true
+      }
+    ]
+  }
+]

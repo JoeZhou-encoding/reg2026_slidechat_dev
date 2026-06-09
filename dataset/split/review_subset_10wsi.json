@@ -1,0 +1,1937 @@
+[
+  {
+    "id": "PIT_01_09887_02.tiff",
+    "organ": "bladder",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "No, there is no abnormality.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any muscularis propria present?",
+        "answer": "Yes, there is a muscularis propria.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "No tumor present",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Urinary bladder, transurethral resection;\\n  No tumor present\\n\\nNote) The specimen includes muscle proper.",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "No, there is no abnormality.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any muscularis propria present?",
+        "answer": "Yes, there is a muscularis propria.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "No tumor present",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Urinary bladder, transurethral resection;\\n  No tumor present\\n\\nNote) The specimen includes muscle proper.",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_00030_01.tiff",
+    "organ": "breast",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Breast",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Core needle biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any proliferative lesion present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any microcalcification present?"
+      },
+      {
+        "question": "Is there any microcalcification present?",
+        "answer": "No, there is no microcalcification.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any proliferative lesion present?",
+        "answer": "Yes, there is a proliferative lesion.",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "Yes, there is an invasion.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Mammary",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Invasive breast carcinoma of no special type",
+        "next_question": "What is the grading system?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for tubular differentiation?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for nuclear pleomorphism?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for mitotic rate?"
+      },
+      {
+        "question": "What is the score for tubular differentiation?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for nuclear pleomorphism?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for mitotic rate?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the overall score?",
+        "answer": "3",
+        "next_question": "What is the grade of neoplasm?"
+      },
+      {
+        "question": "What is the grade of neoplasm?",
+        "answer": "Grade I",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Invasive carcinoma of no special type, grade I",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Breast, core needle biopsy;\\n  Invasive carcinoma of no special type, grade I (Tubule formation: 1, Nuclear grade: 1, Mitoses: 1)",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Breast",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Core needle biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any microcalcification present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any proliferative lesion present?"
+      },
+      {
+        "question": "Is there any microcalcification present?",
+        "answer": "No, there is no microcalcification.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any proliferative lesion present?",
+        "answer": "Yes, there is a proliferative lesion.",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "Yes, there is an invasion.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Mammary",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Invasive breast carcinoma of no special type",
+        "next_question": "What is the grading system?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for mitotic rate?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for nuclear pleomorphism?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for tubular differentiation?"
+      },
+      {
+        "question": "What is the score for tubular differentiation?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for nuclear pleomorphism?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for mitotic rate?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the overall score?",
+        "answer": "3",
+        "next_question": "What is the grade of neoplasm?"
+      },
+      {
+        "question": "What is the grade of neoplasm?",
+        "answer": "Grade I",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Invasive carcinoma of no special type, grade I",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Breast, core needle biopsy;\\n  Invasive carcinoma of no special type, grade I (Tubule formation: 1, Nuclear grade: 1, Mitoses: 1)",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_02992_01.tiff",
+    "organ": "cervix",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Uterine cervix",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Colposcopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Benign",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Cervical",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "What is the grading system of atypia?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "Is there any glandular involvement present?"
+      },
+      {
+        "question": "What is the grading system of atypia?",
+        "answer": "3-tier grading system",
+        "next_question": "What is the grade of atypia?"
+      },
+      {
+        "question": "What is the grade of atypia?",
+        "answer": "Grade 1",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any glandular involvement present?",
+        "answer": "No, there is no glandular involvement.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Uterine cervix, colposcopic biopsy;\\n  Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Uterine cervix",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Colposcopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Benign",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Cervical",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "Is there any glandular involvement present?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "What is the grading system of atypia?"
+      },
+      {
+        "question": "What is the grading system of atypia?",
+        "answer": "3-tier grading system",
+        "next_question": "What is the grade of atypia?"
+      },
+      {
+        "question": "What is the grade of atypia?",
+        "answer": "Grade 1",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any glandular involvement present?",
+        "answer": "No, there is no glandular involvement.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Uterine cervix, colposcopic biopsy;\\n  Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_03801_01.tiff",
+    "organ": "colon",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Colon",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Colonoscopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Colorectal",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Adenocarcinoma",
+        "next_question": "What is the histologic subtype of neoplasm?"
+      },
+      {
+        "question": "What is the histologic subtype of neoplasm?",
+        "answer": "Adenocarcinoma with mucinous component",
+        "next_question": "What is the grading system of neoplasm?"
+      },
+      {
+        "question": "What is the grading system of neoplasm?",
+        "answer": "3-tier grading system",
+        "next_question": "What is the grade of neoplasm?"
+      },
+      {
+        "question": "What is the grade of neoplasm?",
+        "answer": "Moderately differentiated",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Adenocarcinoma, moderately differentiated with mucinous component",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Colon, colonoscopic biopsy;\\n  Adenocarcinoma, moderately differentiated with mucinous component",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Colon",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Colonoscopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Colorectal",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Adenocarcinoma",
+        "next_question": "What is the histologic subtype of neoplasm?"
+      },
+      {
+        "question": "What is the histologic subtype of neoplasm?",
+        "answer": "Adenocarcinoma with mucinous component",
+        "next_question": "What is the grading system of neoplasm?"
+      },
+      {
+        "question": "What is the grading system of neoplasm?",
+        "answer": "3-tier grading system",
+        "next_question": "What is the grade of neoplasm?"
+      },
+      {
+        "question": "What is the grade of neoplasm?",
+        "answer": "Moderately differentiated",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Adenocarcinoma, moderately differentiated with mucinous component",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Colon, colonoscopic biopsy;\\n  Adenocarcinoma, moderately differentiated with mucinous component",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_04834_01.tiff",
+    "organ": "lung",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Lung",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "Is there any neuroendocrine morphology present?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Pulmonary",
+        "next_question": "Is there any neuroendocrine morphology present?"
+      },
+      {
+        "question": "Is there any neuroendocrine morphology present?",
+        "answer": "No, there is no neuroendocrine morphology.",
+        "next_question": "Is there any morphological adenocarcinoma pattern present?"
+      },
+      {
+        "question": "Is there any neuroendocrine morphology present?",
+        "answer": "No, there is no neuroendocrine morphology.",
+        "next_question": "Is there any morphological squamous cell pattern present?"
+      },
+      {
+        "question": "Is there any morphological adenocarcinoma pattern present?",
+        "answer": "No, there is no morphological adenocarcinoma pattern.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "Is there any morphological squamous cell pattern present?",
+        "answer": "Yes, there is a morphological squamous cell pattern.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous cell carcinoma",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Squamous cell carcinoma",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Lung, biopsy;\\n  Squamous cell carcinoma",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Lung",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "Is there any neuroendocrine morphology present?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Pulmonary",
+        "next_question": "Is there any neuroendocrine morphology present?"
+      },
+      {
+        "question": "Is there any neuroendocrine morphology present?",
+        "answer": "No, there is no neuroendocrine morphology.",
+        "next_question": "Is there any morphological adenocarcinoma pattern present?"
+      },
+      {
+        "question": "Is there any neuroendocrine morphology present?",
+        "answer": "No, there is no neuroendocrine morphology.",
+        "next_question": "Is there any morphological squamous cell pattern present?"
+      },
+      {
+        "question": "Is there any morphological adenocarcinoma pattern present?",
+        "answer": "No, there is no morphological adenocarcinoma pattern.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "Is there any morphological squamous cell pattern present?",
+        "answer": "Yes, there is a morphological squamous cell pattern.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous cell carcinoma",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Squamous cell carcinoma",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Lung, biopsy;\\n  Squamous cell carcinoma",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_05716_01.tiff",
+    "organ": "prostate",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Prostate",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Biopsy",
+        "next_question": "Is there any abnormality present"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Prostate",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Acinar adenocarcinoma",
+        "next_question": "What is the grading system?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Acinar adenocarcinoma",
+        "next_question": "What is the tumor volume?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Gleason grading system",
+        "next_question": "Is there any Gleason pattern 3 present?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Gleason grading system",
+        "next_question": "Is there any Gleason pattern 4 present?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Gleason grading system",
+        "next_question": "Is there any Gleason pattern 5 present?"
+      },
+      {
+        "question": "Is there any Gleason pattern 3 present?",
+        "answer": "Yes, there is Gleason pattern 3.",
+        "next_question": "What is the pridominant pattern?"
+      },
+      {
+        "question": "Is there any Gleason pattern 4 present?",
+        "answer": "Yes, there is Gleason pattern 4.",
+        "next_question": "What is the pridominant pattern?"
+      },
+      {
+        "question": "Is there any Gleason pattern 5 present?",
+        "answer": "No, there is no Gleason pattern 5.",
+        "next_question": "What is the pridominant pattern?"
+      },
+      {
+        "question": "What is the pridominant pattern?",
+        "answer": "Gleason pattern 3",
+        "next_question": "What is the secondary pattern constituting more than 5% of tumor?"
+      },
+      {
+        "question": "What is the secondary pattern constituting more than 5% of tumor?",
+        "answer": "Gleason pattern 4",
+        "next_question": "What is the worst grade pattern?"
+      },
+      {
+        "question": "What is the worst grade pattern?",
+        "answer": "Gleason pattern 4",
+        "next_question": "What is the Gleason score?"
+      },
+      {
+        "question": "What is the Gleason score?",
+        "answer": "7 (3+4)",
+        "next_question": "What is the grade group?"
+      },
+      {
+        "question": "What is the Gleason score?",
+        "answer": "7 (3+4)",
+        "next_question": "What is the percentage of Gleason pattern 4?"
+      },
+      {
+        "question": "What is the grade group?",
+        "answer": "Grade group 2",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "What is the percentage of Gleason pattern 4?",
+        "answer": "20%",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "What is the tumor volume?",
+        "answer": "40%",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Acinar adenocarcinoma",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Prostate, biopsy;\\n  Acinar adenocarcinoma, Gleason's score 7 (3+4), grade group 2 (Gleason pattern 4: 20%), tumor volume: 40%",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Prostate",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Prostate",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Acinar adenocarcinoma",
+        "next_question": "What is the grading system?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Acinar adenocarcinoma",
+        "next_question": "What is the tumor volume?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Gleason grading system",
+        "next_question": "Is there any Gleason pattern 3 present?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Gleason grading system",
+        "next_question": "Is there any Gleason pattern 4 present?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Gleason grading system",
+        "next_question": "Is there any Gleason pattern 5 present?"
+      },
+      {
+        "question": "Is there any Gleason pattern 3 present?",
+        "answer": "Yes, there is Gleason pattern 3.",
+        "next_question": "What is the pridominant pattern?"
+      },
+      {
+        "question": "Is there any Gleason pattern 4 present?",
+        "answer": "Yes, there is Gleason pattern 4.",
+        "next_question": "What is the pridominant pattern?"
+      },
+      {
+        "question": "Is there any Gleason pattern 5 present?",
+        "answer": "No, there is no Gleason pattern 5.",
+        "next_question": "What is the pridominant pattern?"
+      },
+      {
+        "question": "What is the pridominant pattern?",
+        "answer": "Gleason pattern 3",
+        "next_question": "What is the secondary pattern constituting more than 5% of tumor?"
+      },
+      {
+        "question": "What is the secondary pattern constituting more than 5% of tumor?",
+        "answer": "Gleason pattern 4",
+        "next_question": "What is the worst grade pattern?"
+      },
+      {
+        "question": "What is the worst grade pattern?",
+        "answer": "Gleason pattern 4",
+        "next_question": "What is the Gleason score?"
+      },
+      {
+        "question": "What is the Gleason score?",
+        "answer": "7 (3+4)",
+        "next_question": "What is the grade group?"
+      },
+      {
+        "question": "What is the Gleason score?",
+        "answer": "7 (3+4)",
+        "next_question": "What is the percentage of Gleason pattern 4?"
+      },
+      {
+        "question": "What is the grade group?",
+        "answer": "Grade group 2",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "What is the percentage of Gleason pattern 4?",
+        "answer": "20%",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "What is the tumor volume?",
+        "answer": "40%",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Acinar adenocarcinoma",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Prostate, biopsy;\\n  Acinar adenocarcinoma, Gleason's score 7 (3+4), grade group 2 (Gleason pattern 4: 20%), tumor volume: 40%",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_07684_01.tiff",
+    "organ": "stomach",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Stomach",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Endoscopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "No, there is no neoplasm.",
+        "next_question": "Is there any polyp present?"
+      },
+      {
+        "question": "Is there any polyp present?",
+        "answer": "No, there is no polyp.",
+        "next_question": "Is there any active inflammation present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any lymphoid aggregate present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any ulceration present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any intestinal metaplasia present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any foveolar epithelial hyperplasia present?"
+      },
+      {
+        "question": "Is there any lymphoid aggregate present?",
+        "answer": "No, there is no lymphoid aggregate.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any ulceration present?",
+        "answer": "No, there is no ulceration.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any intestinal metaplasia present?",
+        "answer": "No, there is no intestinal metaplasia.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any foveolar epithelial hyperplasia present?",
+        "answer": "No, there is no foveolar epithelial hyperplasia.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Chronic active gastritis",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Stomach, endoscopic biopsy;\\n  Chronic active gastritis",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Stomach",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Endoscopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "No, there is no neoplasm.",
+        "next_question": "Is there any polyp present?"
+      },
+      {
+        "question": "Is there any polyp present?",
+        "answer": "No, there is no polyp.",
+        "next_question": "Is there any active inflammation present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any foveolar epithelial hyperplasia present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any intestinal metaplasia present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any lymphoid aggregate present?"
+      },
+      {
+        "question": "Is there any active inflammation present?",
+        "answer": "Yes, there is an active inflammation.",
+        "next_question": "Is there any ulceration present?"
+      },
+      {
+        "question": "Is there any lymphoid aggregate present?",
+        "answer": "No, there is no lymphoid aggregate.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any ulceration present?",
+        "answer": "No, there is no ulceration.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any intestinal metaplasia present?",
+        "answer": "No, there is no intestinal metaplasia.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any foveolar epithelial hyperplasia present?",
+        "answer": "No, there is no foveolar epithelial hyperplasia.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Chronic active gastritis",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Stomach, endoscopic biopsy;\\n  Chronic active gastritis",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_09948_03.tiff",
+    "organ": "bladder",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any muscularis propria present?",
+        "answer": "Yes, there is a muscularis propria.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Urothelial",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "No, there is no invasion.",
+        "next_question": "Is there any papillary lesion present?"
+      },
+      {
+        "question": "Is there any papillary lesion present?",
+        "answer": "Yes, there is a papillary lesion.",
+        "next_question": "What is the grading system of dysplasia?"
+      },
+      {
+        "question": "What is the grading system of dysplasia?",
+        "answer": "2-tier grading system",
+        "next_question": "What is the grade of dysplasia?"
+      },
+      {
+        "question": "What is the grade of dysplasia?",
+        "answer": "High grade",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Non-invasive papillary urothelial carcinoma",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "Yes, there is an additional finding.",
+        "next_question": "Is there any associated epithelial lesion present?"
+      },
+      {
+        "question": "Is there any associated epithelial lesion present?",
+        "answer": "Yes, there is an associated epithelial lesion.",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "No, there is no invasion.",
+        "next_question": "Is there any papillary lesion present?"
+      },
+      {
+        "question": "Is there any papillary lesion present?",
+        "answer": "No, there is no papillary lesion.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Urothelial carcinoma in situ",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "2",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Non-invasive papillary urothelial carcinoma, high grade",
+        "next_question": "What is the #2 diagnosis?"
+      },
+      {
+        "question": "What is the #2 diagnosis?",
+        "answer": "Urothelial carcinoma in situ",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Urinary bladder, transurethral resection;\\n  1. Non-invasive papillary urothelial carcinoma, high grade\\n  2. Urothelial carcinoma in situ\\n\\nNote) The specimen includes muscle proper.",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the organ?",
+        "answer": "Urinary bladder",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Transurethral resection",
+        "next_question": "Is there any muscularis propria present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any muscularis propria present?",
+        "answer": "Yes, there is a muscularis propria.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Malignant",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Urothelial",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "No, there is no invasion.",
+        "next_question": "Is there any papillary lesion present?"
+      },
+      {
+        "question": "Is there any papillary lesion present?",
+        "answer": "Yes, there is a papillary lesion.",
+        "next_question": "What is the grading system of dysplasia?"
+      },
+      {
+        "question": "Is there any papillary lesion present?",
+        "answer": "Yes, there is a papillary lesion.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "Is there any papillary lesion present?",
+        "answer": "No, there is no papillary lesion.",
+        "next_question": "What is the grading system of dysplasia?"
+      },
+      {
+        "question": "Is there any papillary lesion present?",
+        "answer": "No, there is no papillary lesion.",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the grading system of dysplasia?",
+        "answer": "2-tier grading system",
+        "next_question": "What is the grade of dysplasia?"
+      },
+      {
+        "question": "What is the grade of dysplasia?",
+        "answer": "High grade",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Non-invasive papillary urothelial carcinoma",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Urothelial carcinoma in situ",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "Yes, there is an additional finding.",
+        "next_question": "Is there any associated epithelial lesion present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "Yes, there is an additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "Is there any associated epithelial lesion present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any associated epithelial lesion present?",
+        "answer": "Yes, there is an associated epithelial lesion.",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "2",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Non-invasive papillary urothelial carcinoma, high grade",
+        "next_question": "What is the #2 diagnosis?"
+      },
+      {
+        "question": "What is the #2 diagnosis?",
+        "answer": "Urothelial carcinoma in situ",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Urinary bladder, transurethral resection;\\n  1. Non-invasive papillary urothelial carcinoma, high grade\\n  2. Urothelial carcinoma in situ\\n\\nNote) The specimen includes muscle proper.",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_00045_01.tiff",
+    "organ": "breast",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Breast",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Core needle biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any proliferative lesion present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any microcalcification present?"
+      },
+      {
+        "question": "Is there any microcalcification present?",
+        "answer": "No, there is no microcalcification.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any proliferative lesion present?",
+        "answer": "Yes, there is a proliferative lesion.",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "Yes, there is an invasion.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Mammary",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Invasive breast carcinoma of no special type",
+        "next_question": "What is the grading system?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for tubular differentiation?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for nuclear pleomorphism?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for mitotic rate?"
+      },
+      {
+        "question": "What is the score for tubular differentiation?",
+        "answer": "3",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for nuclear pleomorphism?",
+        "answer": "2",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for mitotic rate?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the overall score?",
+        "answer": "6",
+        "next_question": "What is the grade of neoplasm?"
+      },
+      {
+        "question": "What is the grade of neoplasm?",
+        "answer": "Grade II",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Invasive carcinoma of no special type, grade II",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Breast, core needle biopsy;\\n  Invasive carcinoma of no special type, grade II (Tubule formation: 3, Nuclear grade: 2, Mitoses: 1)",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Breast",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Core needle biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any microcalcification present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any proliferative lesion present?"
+      },
+      {
+        "question": "Is there any microcalcification present?",
+        "answer": "No, there is no microcalcification.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "Is there any proliferative lesion present?",
+        "answer": "Yes, there is a proliferative lesion.",
+        "next_question": "Is there any invasion present?"
+      },
+      {
+        "question": "Is there any invasion present?",
+        "answer": "Yes, there is an invasion.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Mammary",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Invasive breast carcinoma of no special type",
+        "next_question": "What is the grading system?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for mitotic rate?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for nuclear pleomorphism?"
+      },
+      {
+        "question": "What is the grading system?",
+        "answer": "Nottingham combined histologic grade",
+        "next_question": "What is the score for tubular differentiation?"
+      },
+      {
+        "question": "What is the score for tubular differentiation?",
+        "answer": "3",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for nuclear pleomorphism?",
+        "answer": "2",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the score for mitotic rate?",
+        "answer": "1",
+        "next_question": "What is the overall score?"
+      },
+      {
+        "question": "What is the overall score?",
+        "answer": "6",
+        "next_question": "What is the grade of neoplasm?"
+      },
+      {
+        "question": "What is the grade of neoplasm?",
+        "answer": "Grade II",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Invasive carcinoma of no special type, grade II",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Breast, core needle biopsy;\\n  Invasive carcinoma of no special type, grade II (Tubule formation: 3, Nuclear grade: 2, Mitoses: 1)",
+        "next_question": ""
+      }
+    ]
+  },
+  {
+    "id": "PIT_01_02995_01.tiff",
+    "organ": "cervix",
+    "bpv": 1.0,
+    "edge_f1": 1.0,
+    "gt_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Uterine cervix",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Colposcopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Benign",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Cervical",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "What is the grading system of atypia?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "Is there any glandular involvement present?"
+      },
+      {
+        "question": "What is the grading system of atypia?",
+        "answer": "3-tier grading system",
+        "next_question": "What is the grade of atypia?"
+      },
+      {
+        "question": "What is the grade of atypia?",
+        "answer": "Grade 1",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any glandular involvement present?",
+        "answer": "No, there is no glandular involvement.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Uterine cervix, colposcopic biopsy;\\n  Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": ""
+      }
+    ],
+    "pred_chain_of_thought": [
+      {
+        "question": "What is the organ?",
+        "answer": "Uterine cervix",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "What is the procedure?",
+        "answer": "Colposcopic biopsy",
+        "next_question": "Is there any abnormality present?"
+      },
+      {
+        "question": "Is there any abnormality present?",
+        "answer": "Yes, there is an abnormality.",
+        "next_question": "Is there any neoplasm present?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the behavior of neoplasm?"
+      },
+      {
+        "question": "Is there any neoplasm present?",
+        "answer": "Yes, there is a neoplasm.",
+        "next_question": "What is the primary of neoplasm?"
+      },
+      {
+        "question": "What is the behavior of neoplasm?",
+        "answer": "Benign",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the primary of neoplasm?",
+        "answer": "Cervical",
+        "next_question": "What is the histologic type of neoplasm?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "Is there any glandular involvement present?"
+      },
+      {
+        "question": "What is the histologic type of neoplasm?",
+        "answer": "Squamous intraepithelial lesion",
+        "next_question": "What is the grading system of atypia?"
+      },
+      {
+        "question": "What is the grading system of atypia?",
+        "answer": "3-tier grading system",
+        "next_question": "What is the grade of atypia?"
+      },
+      {
+        "question": "What is the grade of atypia?",
+        "answer": "Grade 1",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any glandular involvement present?",
+        "answer": "No, there is no glandular involvement.",
+        "next_question": "Is there any additional finding present?"
+      },
+      {
+        "question": "Is there any additional finding present?",
+        "answer": "No, there is no additional finding.",
+        "next_question": "What is the number of diagnoses to includes?"
+      },
+      {
+        "question": "What is the number of diagnoses to includes?",
+        "answer": "1",
+        "next_question": "What is the #1 diagnosis?"
+      },
+      {
+        "question": "What is the #1 diagnosis?",
+        "answer": "Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": "What is the final pathology report?"
+      },
+      {
+        "question": "What is the final pathology report?",
+        "answer": "Uterine cervix, colposcopic biopsy;\\n  Low-grade squamous intraepithelial lesion (LSIL; CIN 1)",
+        "next_question": ""
+      }
+    ]
+  }
+]
