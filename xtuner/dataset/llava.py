@@ -17,6 +17,7 @@ from .utils import expand2square
 
 import pandas as pd
 import numpy as np
+import h5py  # REG2026: .h5 WSI feature loader branch (adaptive, alongside .csv)
 
 def load_jsonl(json_file):
     with open(json_file) as f:
@@ -115,6 +116,10 @@ class LLaVADataset(Dataset):
                 image_list = [image_list]
             images = []
             for image_file in image_list:
+                # REG2026: resolve relative feature filenames against image_folder when set.
+                # SlideChat default image_folder='' -> no-op (paths stay self-contained).
+                if self.image_folder:
+                    image_file = os.path.join(self.image_folder, image_file)
                 if image_file.endswith('.csv'):
 
                     image = pd.read_csv(image_file)
@@ -125,9 +130,18 @@ class LLaVADataset(Dataset):
                         indices = np.linspace(0, total_rows - 1, self.sample_num, dtype=int)
                         sampled_df = image.iloc[indices]
                         image = sampled_df.iloc[:self.sample_num]
-                    
+
                     image = image.to_numpy()
                     image = torch.from_numpy(image)
+                elif image_file.endswith('.h5'):
+                    # REG2026 CONCH dump: features (N,512) fp16; same linspace downsample as csv.
+                    with h5py.File(image_file, 'r') as f:
+                        arr = f['features'][:]
+                    total_rows = arr.shape[0]
+                    if total_rows >= self.sample_num:
+                        indices = np.linspace(0, total_rows - 1, self.sample_num, dtype=int)
+                        arr = arr[indices]
+                    image = torch.from_numpy(np.ascontiguousarray(arr, dtype=np.float32))
                 images.append(image)
             data_dict['pixel_values'] = images
         return data_dict

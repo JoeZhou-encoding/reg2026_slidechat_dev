@@ -6,6 +6,7 @@ from io import BytesIO
 from itertools import chain
 
 import numpy as np
+import h5py  # REG2026: .h5 WSI feature loader branch (adaptive, alongside .csv)
 import requests
 from PIL import Image
 
@@ -277,6 +278,7 @@ from io import BytesIO
 from itertools import chain
 
 import numpy as np
+import h5py  # REG2026: .h5 WSI feature loader branch (adaptive, alongside .csv)
 import requests
 from PIL import Image
 
@@ -547,10 +549,19 @@ def load_image(image_file):
             indices = np.linspace(0, total_rows - 1, 10240, dtype=int)
             sampled_df = image.iloc[indices]
             image = sampled_df.iloc[:10240]
-        
+
 
         image = image.to_numpy().reshape(1, image.shape[0], 512)
 
+    elif image_file.endswith('.h5'):
+        # REG2026 CONCH dump: features (N,512) fp16; same linspace downsample as csv.
+        with h5py.File(image_file, 'r') as f:
+            arr = f['features'][:]
+        total_rows = arr.shape[0]
+        if total_rows >= 10240:
+            indices = np.linspace(0, total_rows - 1, 10240, dtype=int)
+            arr = arr[indices]
+        image = arr.astype(np.float32).reshape(1, arr.shape[0], 512)
 
     else:
         image = Image.open(image_file).convert('RGB')
