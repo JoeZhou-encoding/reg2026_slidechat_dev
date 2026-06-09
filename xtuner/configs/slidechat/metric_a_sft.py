@@ -3,8 +3,17 @@
 # Adapted from configs/slidechat/stage_2.py. Continue-SFT from the released SlideChat
 # stage-2 weights (LongNet+projector+LLM) on our IMG-only MCQA data.
 #
-# ⚠️ This is a DRAFT Config Review Block — review every value before pjsub.
-#    Decision points marked [D-Ax]. Run with deepspeed_zero2 (see runbook).
+# ⚠️ Review every value before pjsub. Run with deepspeed_zero2/zero3 (see runbook).
+#
+# D-A6 = FULL fine-tune — DECIDED (2026-06-07 meeting + user 2026-06-09): train
+#        LongNet+projector+LLM (freeze_llm=False, train_stage='2'). LoRA alt left
+#        commented for reference only (NOT used).
+# Aligned with SlideChat stage_2.py recipe: lr=2e-5, bs=1, accum=8, cosine,
+#        warmup 0.03. Ours: epochs=1 (POC, meeting) vs 3; bf16 (Qwen2.5-native) vs fp16;
+#        seed=2026 (repro) vs None; max_length=12288 (10240 patch tok + short MCQA) vs 19600.
+# Note: original 'sample_type=wsi' is a DEAD config var (never reaches LLaVADataset;
+#        only EvaluateChatHook uses it, which we drop) -> intentionally omitted.
+#        per_image_length set to sample_num (NOT None) -> avoids modality_length TypeError.
 # =============================================================================
 import torch
 from mmengine.dataset import DefaultSampler
