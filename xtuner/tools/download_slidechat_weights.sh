@@ -46,8 +46,11 @@ unset HF_HUB_OFFLINE 2>/dev/null || true   # ensure online for the download
 
 mkdir -p "$MODELS"
 echo "=============== DOWNLOAD CONFIG (review) ==============="
-echo "  $SLIDECHAT_REPO  ->  $MODELS/SlideChat_Weight"
-echo "  $QWEN_REPO        ->  $MODELS/Qwen2.5-7B-Instruct  (~15 GB)"
+echo "  $SLIDECHAT_REPO"
+echo "      -> $MODELS/SlideChat_Weight   (ONLY stage2_pth/mp_rank_00_model_states.pt = 15.3GB;"
+echo "         SKIPS 91.6GB optim states + stage1; that single file is the final LongNet+projector+LLM)"
+echo "  $QWEN_REPO        ->  $MODELS/Qwen2.5-7B-Instruct  (~15 GB base LLM)"
+echo "  total ~30GB (not 122GB)"
 echo "  env:    $ENV_PREFIX"
 echo "  token:  ${HF_TOKEN:+set}"; [ -z "${HF_TOKEN:-}" ] && echo "          (HF_TOKEN not set; public repos download fine without it)"
 echo "  free space at $MODELS:"; df -h "$MODELS" 2>/dev/null | sed 's/^/    /'
@@ -57,13 +60,17 @@ if [ "$GO" != "1" ]; then
   exit 0
 fi
 
-dl () {  # $1 repo, $2 dest
-  echo ">>> $1  ->  $2"
-  "$HF_BIN" download "$1" --local-dir "$2" \
-    || { echo "ERR: download of $1 failed"; return 1; }
+dl () {  # $1 repo, $2 dest, $3.. extra args (e.g. --include patterns)
+  local repo="$1" dest="$2"; shift 2
+  echo ">>> $repo  ->  $dest   ${*:+[args: $*]}"
+  "$HF_BIN" download "$repo" --local-dir "$dest" "$@" \
+    || { echo "ERR: download of $repo failed"; return 1; }
 }
 rc=0
-dl "$SLIDECHAT_REPO" "$MODELS/SlideChat_Weight"   || rc=1
+# SlideChat: ONLY the consolidated stage-2 model (15.3GB) -> skips 91.6GB optim + stage1.
+# We load it via the FILE path (torch.load + extract 'module'); see extract_stage2_model.py.
+dl "$SLIDECHAT_REPO" "$MODELS/SlideChat_Weight" \
+   --include "stage2_pth/mp_rank_00_model_states.pt" "README.md"  || rc=1
 dl "$QWEN_REPO"      "$MODELS/Qwen2.5-7B-Instruct" || rc=1
 echo "----------------------------------------------"
 echo "download rc=$rc.  verify with:  python $(dirname "$0")/check_weights.py"
