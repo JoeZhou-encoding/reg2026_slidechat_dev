@@ -33,7 +33,12 @@ done
 [ -n "$CONDA_BASE" ] || { echo "ERR: conda base not found"; exit 2; }
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 conda activate "$ENV_PREFIX" || { echo "ERR: conda activate $ENV_PREFIX failed"; exit 2; }
-command -v huggingface-cli >/dev/null 2>&1 || { echo "ERR: huggingface-cli not found in $ENV_PREFIX"; exit 2; }
+# newer huggingface_hub ships `hf` (huggingface-cli is deprecated/no-op); prefer hf, fall back.
+HF_BIN=""
+if command -v hf >/dev/null 2>&1; then HF_BIN=hf
+elif command -v huggingface-cli >/dev/null 2>&1; then HF_BIN=huggingface-cli
+else echo "ERR: neither 'hf' nor 'huggingface-cli' found in $ENV_PREFIX"; exit 2; fi
+echo "  hf cli: $HF_BIN"
 
 # token (optional, for gated repos) — from env only
 [ -n "${HF_TOKEN:-}" ] && export HUGGING_FACE_HUB_TOKEN="$HF_TOKEN"
@@ -54,7 +59,7 @@ fi
 
 dl () {  # $1 repo, $2 dest
   echo ">>> $1  ->  $2"
-  huggingface-cli download "$1" --local-dir "$2" \
+  "$HF_BIN" download "$1" --local-dir "$2" \
     || { echo "ERR: download of $1 failed"; return 1; }
 }
 rc=0

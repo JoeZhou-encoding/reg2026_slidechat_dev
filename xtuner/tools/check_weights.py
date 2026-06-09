@@ -40,7 +40,7 @@ def main():
     a = ap.parse_args()
     M = a.models
     print(f"models dir: {M}\n")
-    r_conch = report("CONCH", f"{M}/CONCH")
+    r_conch = report("CONCH", f"{M}/CONCH", needs_config=False)  # CONCH uses meta.yaml+pytorch_model.bin, no config.json
     r_slide = report("SlideChat_Weight", f"{M}/SlideChat_Weight")
     r_qwen = report("Qwen2.5-7B-Instruct", f"{M}/Qwen2.5-7B-Instruct")
     print("\n" + "=" * 60)
