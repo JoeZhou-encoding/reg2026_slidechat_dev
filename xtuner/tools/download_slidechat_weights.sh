@@ -60,17 +60,16 @@ if [ "$GO" != "1" ]; then
   exit 0
 fi
 
-dl () {  # $1 repo, $2 dest, $3.. extra args (e.g. --include patterns)
+dl () {  # $1 repo, $2 dest, $3.. positional FILENAMES (new `hf download` form; not --include)
   local repo="$1" dest="$2"; shift 2
-  echo ">>> $repo  ->  $dest   ${*:+[args: $*]}"
-  "$HF_BIN" download "$repo" --local-dir "$dest" "$@" \
+  echo ">>> $repo  ->  $dest   ${*:+[files: $*]}"
+  "$HF_BIN" download "$repo" "$@" --local-dir "$dest" \
     || { echo "ERR: download of $repo failed"; return 1; }
 }
 rc=0
-# SlideChat: ONLY the consolidated stage-2 model (15.3GB) -> skips 91.6GB optim + stage1.
-# We load it via the FILE path (torch.load + extract 'module'); see extract_stage2_model.py.
-dl "$SLIDECHAT_REPO" "$MODELS/SlideChat_Weight" \
-   --include "stage2_pth/mp_rank_00_model_states.pt" "README.md"  || rc=1
+# SlideChat: ONLY the consolidated stage-2 model (15.3GB) as a positional filename ->
+# skips 91.6GB optim + stage1. Load via FILE path after extract_stage2_model.py.
+dl "$SLIDECHAT_REPO" "$MODELS/SlideChat_Weight" "stage2_pth/mp_rank_00_model_states.pt"  || rc=1
 dl "$QWEN_REPO"      "$MODELS/Qwen2.5-7B-Instruct" || rc=1
 echo "----------------------------------------------"
 echo "download rc=$rc.  verify with:  python $(dirname "$0")/check_weights.py"
