@@ -43,23 +43,33 @@ pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorc
 
 # ---- SlideChat xtuner fork (editable) -> pulls mmengine / transformers<=4.42.4 / peft / deepspeed ----
 ( cd "$SLIDECHAT" && pip install -e . ) || { echo "ERR: pip install -e . failed"; exit 2; }
+# requirements pin transformers<=4.42.4 but peft is unbounded -> latest peft needs
+# transformers>=4.43 (EncoderDecoderCache) and breaks. Pin peft to a 4.42-compatible version.
+pip install "peft==0.11.1"
 
 # ---- our extras ----
 pip install h5py                       # .h5 WSI feature loader branch (B4)
-# mpi4py-mpich (in deepspeed.txt) is only needed for MULTI-node; single-node uses NCCL.
-# If it failed during `-e .`, it's harmless for 1-node/4-GPU.
+# deepspeed: the `-e .` requirements/deepspeed.txt also lists mpi4py-mpich, which needs an MPI
+# toolchain and often aborts the whole deepspeed install. Single-node/4-GPU uses NCCL (no MPI),
+# so install deepspeed directly and skip mpi4py-mpich.
+pip install deepspeed || echo "WARN: deepspeed install failed -- retry: pip install deepspeed"
+# requirements.txt is INCOMPLETE: the model/dataset code imports these but they are NOT declared
+# (torchscale/LongNet+CONCH need timm; the csv loader needs pandas; etc.). Versions from the
+# authors' environment.yaml -- install them all up front to avoid one-by-one ModuleNotFoundError.
+pip install timm==1.0.12 accelerate==1.2.0 pandas==2.2.3 matplotlib==3.9.3 tqdm==4.67.1 opencv-python==4.10.0.84
 
 # ---- verify ----
 echo "================= VERIFY ================="
 python - <<'PY'
-import torch, h5py, transformers, deepspeed, xtuner
+import torch, h5py, transformers, deepspeed, peft, timm, pandas, accelerate, xtuner
 print("torch", torch.__version__, "| cuda", torch.cuda.is_available(),
-      "| transformers", transformers.__version__, "| deepspeed", deepspeed.__version__,
-      "| h5py", h5py.__version__)
+      "| transformers", transformers.__version__, "| peft", peft.__version__,
+      "| deepspeed", deepspeed.__version__, "| timm", timm.__version__, "| h5py", h5py.__version__)
+from xtuner.model import LLaVAModel                          # exercises the full model __init__
 from xtuner.model.torchscale.model.LongNet import make_longnet_from_name
 from xtuner.model.modules import ProjectorConfig, ProjectorModel
 from xtuner.dataset import LLaVADataset
-print("xtuner model + dataset imports OK")
+print("xtuner LLaVAModel + LongNet + projector + dataset imports OK")
 PY
 echo "xtuner CLI: $(command -v xtuner || echo MISSING)"
 echo "ENV_PREFIX=$ENV_PREFIX"
