@@ -25,7 +25,9 @@ def main():
         print("usage: python extract_stage2_model.py <mp_rank_00_model_states.pt> <out.pth>")
         sys.exit(2)
     src, dst = sys.argv[1], sys.argv[2]
-    ckpt = torch.load(src, map_location="cpu")
+    # weights_only=False: DeepSpeed ckpt carries mmengine ConfigDict etc.; PyTorch>=2.6
+    # defaults weights_only=True and would reject it. Trusted source (official SlideChat repo).
+    ckpt = torch.load(src, map_location="cpu", weights_only=False)
     if isinstance(ckpt, dict) and "module" in ckpt:
         sd = ckpt["module"]
         print(f"unwrapped DeepSpeed 'module' ({len(sd)} tensors)")
