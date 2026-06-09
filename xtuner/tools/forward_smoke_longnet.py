@@ -15,7 +15,7 @@ Run in the TRAINING env (needs torch + xtuner + torchscale), from a dir where `x
   cd <slidechat_dev>/xtuner && python tools/forward_smoke_longnet.py
   # or: PYTHONPATH=<slidechat_dev> python tools/forward_smoke_longnet.py
 """
-import argparse, sys
+import argparse, sys, traceback
 import torch
 
 
@@ -58,8 +58,11 @@ def main():
             if out.shape[-1] != D or not finite:
                 bad.append((N, tuple(out.shape), finite))
         except Exception as e:
+            first = not bad
             bad.append((N, f"{type(e).__name__}: {e}", False))
             print(f"  N={N:>6}: FAILED {type(e).__name__}: {e}")
+            if first:               # full traceback on the first failure -> shows the exact assert line
+                traceback.print_exc()
 
     # ---- Projector: 512 -> H_llm ----
     print("\n[Projector] ProjectorConfig(visual_hidden_size=%d, llm_hidden_size=%d, depth=2)" % (D, args.h_llm))

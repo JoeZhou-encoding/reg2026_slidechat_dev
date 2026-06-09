@@ -20,7 +20,7 @@ module load cuda/12.6.1 2>/dev/null || true
 H_HOME=/home/pj24003162/ku40003404/weihao/00
 REG2026=$H_HOME/reg_2026
 SLIDECHAT=$H_HOME/reg2026_slidechat_dev
-ENV_PREFIX=$REG2026/_envs/reg2026_train_py310
+ENV_NAME=xtuner-env   # README-style named env: conda create -n xtuner-env python=3.10
 
 CONDA_BASE=""
 for cb in "$(conda info --base 2>/dev/null || true)" "$H_HOME/miniconda3" /home/pj24003162/ku40003404/miniconda3; do
@@ -28,7 +28,7 @@ for cb in "$(conda info --base 2>/dev/null || true)" "$H_HOME/miniconda3" /home/
 done
 [ -n "$CONDA_BASE" ] || { echo "ERR: conda base not found"; exit 2; }
 source "$CONDA_BASE/etc/profile.d/conda.sh"
-conda activate "$ENV_PREFIX" || { echo "ERR: activate $ENV_PREFIX failed"; exit 2; }
+conda activate "$ENV_NAME" || { echo "ERR: activate $ENV_NAME failed"; exit 2; }
 
 echo "host=$(hostname)  $(date)"
 nvidia-smi --query-gpu=name,memory.total --format=csv,noheader || true
