@@ -17,10 +17,34 @@ Run (in an env with torch):
     <models>/SlideChat_Weight/stage2_model.pth
 """
 import sys
+import types
 import torch
 
 
+def _stub_missing_modules():
+    """The ds checkpoint pickles mmengine ConfigDict metadata. We only want the 'module'
+    tensors, so if mmengine isn't installed, stub it as a plain dict subclass so
+    torch.load(weights_only=False) can unpickle the metadata it doesn't need."""
+    try:
+        import mmengine  # noqa: F401  -> use the real class if available
+        return
+    except Exception:
+        pass
+    for name in ("mmengine", "mmengine.config", "mmengine.config.config",
+                 "mmengine.utils", "mmengine.utils.config"):
+        sys.modules.setdefault(name, types.ModuleType(name))
+    ConfigDict = type("ConfigDict", (dict,), {})
+    for name in ("mmengine.config.config", "mmengine.config", "mmengine.utils.config"):
+        setattr(sys.modules[name], "ConfigDict", ConfigDict)
+    sys.modules["mmengine"].config = sys.modules["mmengine.config"]
+    sys.modules["mmengine"].utils = sys.modules["mmengine.utils"]
+    sys.modules["mmengine.config"].config = sys.modules["mmengine.config.config"]
+    sys.modules["mmengine.utils"].config = sys.modules["mmengine.utils.config"]
+    print("note: mmengine not installed -> stubbed ConfigDict for unpickling")
+
+
 def main():
+    _stub_missing_modules()
     if len(sys.argv) != 3:
         print("usage: python extract_stage2_model.py <mp_rank_00_model_states.pt> <out.pth>")
         sys.exit(2)
