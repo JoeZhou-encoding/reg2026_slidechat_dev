@@ -22,11 +22,12 @@ PARTS_DIR="${PARTS_DIR:-$PROJECT/tmp/feat_parts_dl}"
 # ---- token from .env (private repo) ----
 [ -f "$PROJECT/.env" ] && source "$PROJECT/.env"
 : "${HF_TOKEN:?HF_TOKEN not set (put it in $PROJECT/.env)}"
-export HF_TOKEN HF_HUB_ENABLE_HF_TRANSFER=1
+export HF_TOKEN
+export HF_HUB_ENABLE_HF_TRANSFER="${HF_HUB_ENABLE_HF_TRANSFER:-0}"   # 0=robust, 1=fast (may hang)
 mkdir -p "$FEAT_DIR" "$DATA_ROOT/metric_a" "$PARTS_DIR"
 
-python -c "import huggingface_hub, hf_transfer" 2>/dev/null \
-  || { echo "ERR: pip install 'huggingface_hub>=0.24' hf_transfer  (in the data env) first"; exit 2; }
+python -c "import huggingface_hub" 2>/dev/null \
+  || { echo "ERR: pip install 'huggingface_hub>=0.24'  (in the data env) first"; exit 2; }
 
 # ---- download parts (feat_archive/) + json ----
 python - "$HF_REPO" "$PARTS_DIR" "$DATA_ROOT" <<'PY'

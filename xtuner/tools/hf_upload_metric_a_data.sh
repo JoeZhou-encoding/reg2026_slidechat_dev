@@ -27,13 +27,17 @@ COMPRESS="${COMPRESS:-none}"          # none | gzip
 # ---- token from .env (never commit/print) ----
 [ -f "$REG2026/.env" ] && source "$REG2026/.env"
 : "${HF_TOKEN:?HF_TOKEN not set (put it in $REG2026/.env)}"
-export HF_TOKEN HF_HUB_ENABLE_HF_TRANSFER=1
+export HF_TOKEN
+# hf_transfer can hang silently on some networks -> default OFF (standard upload shows progress,
+# is robust + resumable). Opt in for speed with HF_HUB_ENABLE_HF_TRANSFER=1 if your link is clean.
+export HF_HUB_ENABLE_HF_TRANSFER="${HF_HUB_ENABLE_HF_TRANSFER:-0}"
 
 # ---- pre-flight ----
 [ -d "$FEAT_DIR" ] || { echo "ERR: feature dir missing: $FEAT_DIR"; exit 2; }
 [ -f "$SFT_JSON" ] || { echo "ERR: SFT json missing: $SFT_JSON"; exit 2; }
-python -c "import huggingface_hub, hf_transfer" 2>/dev/null \
-  || { echo "ERR: pip install 'huggingface_hub>=0.24' hf_transfer  (in this env) first"; exit 2; }
+python -c "import huggingface_hub" 2>/dev/null \
+  || { echo "ERR: pip install 'huggingface_hub>=0.24'  (in this env) first"; exit 2; }
+echo "[hf] HF_HUB_ENABLE_HF_TRANSFER=$HF_HUB_ENABLE_HF_TRANSFER (0=standard/robust, 1=fast)"
 n_h5=$(ls "$FEAT_DIR"/*.h5 2>/dev/null | wc -l)
 echo "repo=$HF_REPO  feat_dir=$FEAT_DIR (.h5=$n_h5)  compress=$COMPRESS  part_size=$PART_SIZE"
 
