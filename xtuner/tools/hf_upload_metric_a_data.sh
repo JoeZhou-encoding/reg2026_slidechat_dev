@@ -18,7 +18,7 @@
 set -uo pipefail
 
 REG2026="${REG2026:-/home/pj24003162/ku40003404/weihao/00/reg_2026}"
-HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-data}"
+HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-feats}"   # NEW clean repo (old one had a half-upload)
 DATA_ROOT="${DATA_ROOT:-$REG2026/data/reg2026}"
 FEAT_DIR="${FEAT_DIR:-$DATA_ROOT/train_feat_conch}"
 SFT_JSON="${SFT_JSON:-$DATA_ROOT/metric_a/sft_metric_a_train.json}"
@@ -34,9 +34,8 @@ export HF_TOKEN
 # is robust + resumable). Opt in for speed with HF_HUB_ENABLE_HF_TRANSFER=1 if your link is clean.
 export HF_HUB_ENABLE_HF_TRANSFER="${HF_HUB_ENABLE_HF_TRANSFER:-0}"
 
-# ---- pre-flight ----
+# ---- pre-flight (only the feature archive is uploaded; sft json is NOT, per "zip only") ----
 [ -d "$FEAT_DIR" ] || { echo "ERR: feature dir missing: $FEAT_DIR"; exit 2; }
-[ -f "$SFT_JSON" ] || { echo "ERR: SFT json missing: $SFT_JSON"; exit 2; }
 python -c "import huggingface_hub" 2>/dev/null \
   || { echo "ERR: pip install 'huggingface_hub>=0.24'  (in this env) first"; exit 2; }
 echo "[hf] HF_HUB_ENABLE_HF_TRANSFER=$HF_HUB_ENABLE_HF_TRANSFER (0=standard/robust, 1=fast)"
@@ -66,10 +65,10 @@ fi
 echo "[tar] parts:"; ls -lh "$PARTS_DIR"/train_feat_conch.tar* | head
 
 # ---- create private repo + upload parts (folder = few files now) + json ----
-python - "$HF_REPO" "$PARTS_DIR" "$SFT_JSON" <<'PY'
+python - "$HF_REPO" "$PARTS_DIR" <<'PY'
 import os, sys
 from huggingface_hub import HfApi
-repo, parts_dir, sft_json = sys.argv[1], sys.argv[2], sys.argv[3]
+repo, parts_dir = sys.argv[1], sys.argv[2]
 private = os.environ.get("HF_PRIVATE", "0") == "1"     # default PUBLIC (free storage; avoids quota 403)
 api = HfApi(token=os.environ["HF_TOKEN"])
 api.create_repo(repo_id=repo, repo_type="dataset", private=private, exist_ok=True)
@@ -82,9 +81,7 @@ except Exception:
     except Exception as e:
         print(f"[hf] WARN: could not set visibility ({e}); set it in the web UI if needed")
 print(f"[hf] repo ready ({'private' if private else 'PUBLIC'}): {repo}")
-api.upload_file(path_or_fileobj=sft_json, path_in_repo="metric_a/sft_metric_a_train.json",
-                repo_id=repo, repo_type="dataset", commit_message="sft json")
-print("[hf] uploaded metric_a/sft_metric_a_train.json")
+# zip only: upload the tar parts + MANIFEST (no loose json)
 api.upload_folder(folder_path=parts_dir, path_in_repo="feat_archive",
                   repo_id=repo, repo_type="dataset", commit_message="feature tar parts")
 print("[hf] uploaded feat_archive/ (tar parts + MANIFEST.txt)")

@@ -14,7 +14,7 @@
 set -uo pipefail
 
 PROJECT="${PROJECT:-/gs/bs/tgh-26IDE/ethanx/reg_data_2026}"
-HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-data}"
+HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-feats}"   # NEW repo (zip only; sft json transferred separately)
 DATA_ROOT="$PROJECT/data/reg2026"
 FEAT_DIR="$DATA_ROOT/train_feat_conch"
 PARTS_DIR="${PARTS_DIR:-$PROJECT/tmp/feat_parts_dl}"
@@ -36,8 +36,13 @@ repo, parts_dir, data_root = sys.argv[1], sys.argv[2], sys.argv[3]
 tok = os.environ.get("HF_TOKEN") or None    # public repo: None is fine
 snapshot_download(repo_id=repo, repo_type="dataset", allow_patterns=["feat_archive/*"],
                   local_dir=parts_dir, token=tok)   # -> parts_dir/feat_archive/*
-hf_hub_download(repo_id=repo, repo_type="dataset", filename="metric_a/sft_metric_a_train.json",
-                local_dir=data_root, token=tok)
+# sft json is NOT in the zip-only repo by default; fetch if present, else note (transfer separately)
+try:
+    hf_hub_download(repo_id=repo, repo_type="dataset", filename="metric_a/sft_metric_a_train.json",
+                    local_dir=data_root, token=tok)
+    print("[hf] sft json fetched")
+except Exception:
+    print("[hf] note: sft json not in repo (zip-only) -> transfer it separately")
 print("[hf] download complete")
 PY
 
