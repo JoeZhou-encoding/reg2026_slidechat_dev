@@ -18,7 +18,7 @@
 set -uo pipefail
 
 REG2026="${REG2026:-/home/pj24003162/ku40003404/weihao/00/reg_2026}"
-HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-feats}"   # NEW clean repo (old one had a half-upload)
+HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-data-feats}"   # clean repo (json already uploaded here via option A)
 DATA_ROOT="${DATA_ROOT:-$REG2026/data/reg2026}"
 FEAT_DIR="${FEAT_DIR:-$DATA_ROOT/train_feat_conch}"
 SFT_JSON="${SFT_JSON:-$DATA_ROOT/metric_a/sft_metric_a_train.json}"

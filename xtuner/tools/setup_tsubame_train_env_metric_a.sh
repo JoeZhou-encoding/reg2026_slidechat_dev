@@ -67,14 +67,20 @@ echo "[flash] prebuilt wheel: $FLASH_WHL"
 ( cd "$TMPDIR_BUILD" && wget -q "$FLASH_URL" -O "$FLASH_WHL" ) || { echo "ERR: flash wheel download failed ($FLASH_URL)"; exit 2; }
 python -m pip install --no-deps "$TMPDIR_BUILD/$FLASH_WHL" || { echo "ERR: flash wheel install failed"; exit 2; }
 
-# ---- rest of the verified stack (pinned to Genkai versions) ----
-python -m pip install \
-  "deepspeed==0.19.1" "transformers==4.42.4" "peft==0.11.1" "timm==1.0.12" \
-  "accelerate" "pandas" "matplotlib" "opencv-python" "h5py" "scikit-image" \
-  || { echo "ERR: stack install failed"; exit 2; }
+# ---- xtuner (editable) WITH its OWN declared deps -> mmengine/datasets/einops/tiktoken/
+#      bitsandbytes/lagent/openpyxl/transformers_stream_generator/... Use xtuner's requirement list,
+#      NOT a hand-picked subset. Done BEFORE the authoritative re-pin below so our pins win. ----
+( cd "$SLIDECHAT" && python -m pip install -e . ) || { echo "ERR: xtuner -e . failed"; exit 2; }
 
-# ---- xtuner editable (this repo) ----
-( cd "$SLIDECHAT" && python -m pip install -e . --no-deps ) || { echo "ERR: xtuner -e . failed"; exit 2; }
+# ---- AUTHORITATIVE re-pin to the verified Genkai versions (xtuner's resolver may pull others).
+#      Reinstall torch 2.6 + the flash wheel too, so `pip install -e .` cannot leave a torch/flash
+#      mismatch (flash wheel is built for torch 2.6 exactly). ----
+python -m pip install $TORCH_SPEC --index-url "$TORCH_INDEX" || { echo "ERR: torch re-pin failed"; exit 2; }
+python -m pip install --no-deps "$TMPDIR_BUILD/$FLASH_WHL" || { echo "ERR: flash re-pin failed"; exit 2; }
+python -m pip install \
+  "transformers==4.42.4" "peft==0.11.1" "deepspeed==0.19.1" "timm==1.0.12" \
+  "h5py" "scikit-image" "pandas" "matplotlib" "opencv-python" \
+  || { echo "ERR: re-pin failed"; exit 2; }
 
 # ---- verify (cheap, no GPU/CUDA_HOME needed) ----
 echo; echo "=============== VERIFY ==============="

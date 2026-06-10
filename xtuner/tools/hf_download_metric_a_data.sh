@@ -14,7 +14,7 @@
 set -uo pipefail
 
 PROJECT="${PROJECT:-/gs/bs/tgh-26IDE/ethanx/reg_data_2026}"
-HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-feats}"   # NEW repo (zip only; sft json transferred separately)
+HF_REPO="${HF_REPO:-zzqsb/reg2026-metric-a-data-feats}"   # feature tar parts + sft json (option A)
 DATA_ROOT="$PROJECT/data/reg2026"
 FEAT_DIR="$DATA_ROOT/train_feat_conch"
 PARTS_DIR="${PARTS_DIR:-$PROJECT/tmp/feat_parts_dl}"
