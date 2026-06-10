@@ -21,8 +21,7 @@ PARTS_DIR="${PARTS_DIR:-$PROJECT/tmp/feat_parts_dl}"
 
 # ---- token from .env (private repo) ----
 [ -f "$PROJECT/.env" ] && source "$PROJECT/.env"
-: "${HF_TOKEN:?HF_TOKEN not set (put it in $PROJECT/.env)}"
-export HF_TOKEN
+export HF_TOKEN="${HF_TOKEN:-}"      # PUBLIC repo: token optional (kept if present in .env)
 export HF_HUB_ENABLE_HF_TRANSFER="${HF_HUB_ENABLE_HF_TRANSFER:-0}"   # 0=robust, 1=fast (may hang)
 mkdir -p "$FEAT_DIR" "$DATA_ROOT/metric_a" "$PARTS_DIR"
 
@@ -34,7 +33,7 @@ python - "$HF_REPO" "$PARTS_DIR" "$DATA_ROOT" <<'PY'
 import os, sys
 from huggingface_hub import snapshot_download, hf_hub_download
 repo, parts_dir, data_root = sys.argv[1], sys.argv[2], sys.argv[3]
-tok = os.environ["HF_TOKEN"]
+tok = os.environ.get("HF_TOKEN") or None    # public repo: None is fine
 snapshot_download(repo_id=repo, repo_type="dataset", allow_patterns=["feat_archive/*"],
                   local_dir=parts_dir, token=tok)   # -> parts_dir/feat_archive/*
 hf_hub_download(repo_id=repo, repo_type="dataset", filename="metric_a/sft_metric_a_train.json",
