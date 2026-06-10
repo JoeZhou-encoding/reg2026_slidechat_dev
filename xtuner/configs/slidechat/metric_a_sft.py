@@ -69,9 +69,13 @@ weight_decay = 0
 max_norm = 1
 warmup_ratio = 0.03
 
-# Save
-save_steps = 500
-save_total_limit = 2
+# Save — 5 checkpoints evenly across the (single) epoch.
+# iter unit = micro-iter (per-forward), proven by smoke "[10/16]" (64 samples / 4 GPU = 16 micro-iters,
+# NOT 2 optimizer steps). Full epoch ~= 129677 / 4 GPU ~= 32420 micro-iters. 32420 / 5 = 6484
+# -> saves at 6484/12968/19452/25936 + save_last(end) = 5 evenly-spaced ckpts.
+# (smoke: only 16 iters -> never hits 6484 -> just 1 save_last ckpt, unaffected.)
+save_steps = 6484
+save_total_limit = 5
 
 SYSTEM = ''
 
