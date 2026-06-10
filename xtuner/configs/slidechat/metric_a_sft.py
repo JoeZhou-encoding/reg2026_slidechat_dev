@@ -15,7 +15,6 @@
 #        only EvaluateChatHook uses it, which we drop) -> intentionally omitted.
 #        per_image_length set to sample_num (NOT None) -> avoids modality_length TypeError.
 # =============================================================================
-import os
 import torch
 from mmengine.dataset import DefaultSampler
 from mmengine.hooks import (CheckpointHook, DistSamplerSeedHook, IterTimerHook,
@@ -38,8 +37,10 @@ from xtuner.utils import PROMPT_TEMPLATE
 # Cross-cluster root. Genkai default; on TSUBAME the qsub script does
 #   export REG2026=/gs/bs/tgh-26IDE/ethanx/reg_data_2026
 # so the SAME config drives both clusters (data at $REG2026/data/reg2026, models at $REG2026/models).
-# Documented env override (config_registry.md); NOT a hidden default.
-REG2026 = os.environ.get('REG2026', '/home/pj24003162/ku40003404/weihao/00/reg_2026')
+# NOTE: use __import__('os') inline (NOT a top-level `import os`) — mmengine captures top-level
+# `import os` as a module object in the cfg and `copy.deepcopy(cfg)` in FlexibleRunner then dies with
+# "cannot pickle 'module' object". The inline form reads the env without binding `os` in the config.
+REG2026 = __import__('os').environ.get('REG2026', '/home/pj24003162/ku40003404/weihao/00/reg_2026')
 
 # Model — base LLM (for arch+tokenizer; weights overwritten by pretrained_pth)
 llm_name_or_path = f'{REG2026}/models/Qwen2.5-7B-Instruct'

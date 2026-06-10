@@ -28,54 +28,53 @@ def main():
                     help="loader downsample cap; we report how many picked WSIs reach it")
     args = ap.parse_args()
 
-    import h5py  # train env has it (B4 loader); fail loudly if not
+    import h5py  # only to read exact patch counts for the PICKED few (the report)
 
     data = json.load(open(args.full, encoding="utf-8"))
-    shape_cache = {}          # h5 path -> patch count (dedup: many questions share one WSI)
-    cand, missing = [], 0     # (n_patch, example)
+    # Rank by FILE SIZE (one stat per WSI) as a proxy for patch count: .h5 holds (N, 512) fp16, so file
+    # size grows with N. This avoids OPENING all ~11k HDF5 files, which is metadata-bound and painfully
+    # slow on a parallel FS (Lustre/GPFS) -> seconds instead of 10+ minutes.
+    size_cache = {}           # h5 path -> file size (dedup: many questions share one WSI)
+    cand, missing = [], 0     # (size, example)
     for ex in data:
         imgs = ex.get("image") or []
         if not imgs:
             continue
         p = os.path.join(args.image_folder, imgs[0])
-        n = shape_cache.get(p, -1)
-        if n == -1:
-            if not os.path.isfile(p):
-                shape_cache[p] = None
-                missing += 1
-                continue
-            try:
-                with h5py.File(p, "r") as f:
-                    n = int(f["features"].shape[0])   # cheap: reads shape metadata only
-            except Exception as e:
-                print(f"  warn: cannot read {p}: {e}")
-                n = None
-            shape_cache[p] = n
-        if n is None:
+        s = size_cache.get(p, -1)
+        if s == -1:
+            s = os.path.getsize(p) if os.path.isfile(p) else None
+            size_cache[p] = s
+        if s is None:
             missing += 1
             continue
-        cand.append((n, ex))
+        cand.append((s, ex))
 
     if not cand:
         print(f"ERR: no example with a readable .h5 under {args.image_folder} (missing={missing})")
         sys.exit(2)
 
-    # largest-N WSIs first -> guarantees the >=sample_num downsample path is exercised
+    # largest files first -> largest-N WSIs -> exercises the >=sample_num downsample / peak-mem path
     cand.sort(key=lambda t: t[0], reverse=True)
     picked = [ex for _, ex in cand[:args.n]]
-    picked_n = [n for n, _ in cand[:args.n]]
 
     json.dump(picked, open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    n_ge = sum(1 for n in picked_n if n >= args.sample_num)
-    print(f"wrote {len(picked)} examples -> {args.out}")
-    print(f"  patch count in subset: min={min(picked_n)} max={max(picked_n)} "
-          f"(>= sample_num {args.sample_num}: {n_ge}/{len(picked_n)})")
-    print(f"  global max patch count over all candidates = {cand[0][0]} "
-          f"(stem={cand[0][1]['image'][0]})")
-    if n_ge == 0:
-        print(f"  NOTE: no picked WSI reaches sample_num={args.sample_num}; the smoke will NOT "
-              f"exercise the 10240-token peak (no train slide is that large) -> peak is "
-              f"max={max(picked_n)} tokens. This is informational, not an error.")
+    # exact patch counts for the report: open ONLY the picked few (fast)
+    picked_n = []
+    for ex in picked:
+        try:
+            with h5py.File(os.path.join(args.image_folder, ex["image"][0]), "r") as f:
+                picked_n.append(int(f["features"].shape[0]))
+        except Exception:
+            pass
+    print(f"wrote {len(picked)} examples -> {args.out}  (skipped {missing} with missing .h5)")
+    if picked_n:
+        n_ge = sum(1 for n in picked_n if n >= args.sample_num)
+        print(f"  patch count in subset: min={min(picked_n)} max={max(picked_n)} "
+              f"(>= sample_num {args.sample_num}: {n_ge}/{len(picked_n)})")
+        if n_ge == 0:
+            print(f"  NOTE: no picked WSI reaches sample_num={args.sample_num}; peak is "
+                  f"max={max(picked_n)} tokens (no train slide is that large). Informational, not an error.")
 
 
 if __name__ == "__main__":

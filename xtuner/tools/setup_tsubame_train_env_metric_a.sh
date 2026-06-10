@@ -80,7 +80,11 @@ python -m pip install --no-deps "$TMPDIR_BUILD/$FLASH_WHL" || { echo "ERR: flash
 python -m pip install \
   "transformers==4.42.4" "peft==0.11.1" "deepspeed==0.19.1" "timm==1.0.12" \
   "h5py" "scikit-image" "pandas" "matplotlib" "opencv-python" \
+  "fairscale" \
   || { echo "ERR: re-pin failed"; exit 2; }
+# fairscale is imported by the VENDORED torchscale/LongNet code (decoder.py) but is NOT in xtuner's
+# setup.py -> `pip install -e .` won't pull it. The full-import verify below is the real backstop:
+# any other vendored dep surfaces HERE on the login node, not in a qsub job.
 
 # ---- verify (cheap, no GPU/CUDA_HOME needed) ----
 echo; echo "=============== VERIFY ==============="
@@ -88,11 +92,15 @@ python - <<'PY'
 import torch, flash_attn, transformers, h5py
 print("torch", torch.__version__, "| flash_attn", flash_attn.__version__,
       "| transformers", transformers.__version__, "| h5py", h5py.__version__)
-try:
-    import peft, timm, deepspeed
-    print("peft", peft.__version__, "| timm", timm.__version__, "| deepspeed", deepspeed.__version__)
-except Exception as e:
-    print("note: deepspeed import may need CUDA_HOME (set via cuda module in the qsub job):", e)
+import peft, timm, deepspeed
+print("peft", peft.__version__, "| timm", timm.__version__, "| deepspeed", deepspeed.__version__)
+# FULL import chain — the real backstop. This is what train.py imports; any missing vendored dep
+# (fairscale, ...) fails HERE on the login node instead of wasting a qsub job. deepspeed import
+# works on the TSUBAME login node via the system CUDA (/apps/t4/.../cuda).
+from xtuner.model import LLaVAModel
+from xtuner.model.torchscale.model.LongNet import make_longnet_from_name
+from xtuner.dataset import LLaVADataset
+print("FULL IMPORT OK (xtuner LLaVAModel + LongNet + dataset)")
 PY
 
 cat <<EOF
